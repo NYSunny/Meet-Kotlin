@@ -82,3 +82,20 @@ dependencies {
     // ...
 }
 ```
+
+自定义gradle属性要注意以下两种区别：
+```
+ext {
+
+       channel = 'official'
+
+}
+
+ext {
+
+       config = [
+              channel : “official”
+        ]
+
+}
+```
