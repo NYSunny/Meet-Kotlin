@@ -1,0 +1,19 @@
+ext {
+    android = [
+            compileSdkVersion: 29,
+            minSdkVersion    : 19,
+            targetSdkVersion : 29,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+    dependencies = [
+            // 单元测试依赖
+            "junit"                             : "junit:junit:4.12",
+            "androidx.test.ext"                 : "androidx.test.ext:junit:1.1.1",
+            "androidx.test.espresso"            : "androidx.test.espresso:espresso-core:3.2.0",
+
+            "androidx.appcompat"                : "androidx.appcompat:appcompat:1.1.0",
+            "androidx.core-ktx"                 : "androidx.core:core-ktx:1.2.0",
+            "androidx.androidx.constraintlayout": "androidx.constraintlayout:constraintlayout:1.1.3"
+    ]
+}
