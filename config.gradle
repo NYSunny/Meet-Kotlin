@@ -6,7 +6,7 @@ ext {
             versionCode      : 1,
             versionName      : "1.0"
     ]
-    dependencies = [
+    deps = [
             // 单元测试依赖
             "junit"                             : "junit:junit:4.12",
             "androidx.test.ext"                 : "androidx.test.ext:junit:1.1.1",

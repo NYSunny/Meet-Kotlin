@@ -16,7 +16,7 @@ ext {
             versionName      : "1.0"
             // ...
     ]
-    dependencies = [
+    deps = [
             // 单元测试依赖
             "junit"                             : "junit:junit:4.12",
             "androidx.test.ext"                 : "androidx.test.ext:junit:1.1.1",
@@ -55,8 +55,8 @@ defaultConfig {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation rootProject.ext.dependencies["androidx.appcompat"]
-    implementation rootProject.ext.dependencies["androidx.core-ktx"]
+    implementation rootProject.ext.deps["androidx.appcompat"]
+    implementation rootProject.ext.deps["androidx.core-ktx"]
     // ...
 }
 ```
@@ -77,8 +77,8 @@ defaultConfig {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation dependencies["androidx.appcompat"]
-    implementation dependencies["androidx.core-ktx"]
+    implementation deps["androidx.appcompat"]
+    implementation deps["androidx.core-ktx"]
     // ...
 }
 ```
