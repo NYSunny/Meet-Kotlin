@@ -1,33 +1,19 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-
-    // 调试
-    boolean devBuildProperty = rootProject.hasProperty('devBuild')
-    if (devBuildProperty) {
-        splits.abi.enable = false
-        splits.density.enable = false
-        // 禁用PNG压缩
-        aaptOptions.cruncherEnabled = false
-    }
-
     compileSdkVersion rootProject.ext.android["compileSdkVersion"]
 
+
     defaultConfig {
-        applicationId "com.johnny.meet_kotlin"
         minSdkVersion rootProject.ext.android["minSdkVersion"]
         targetSdkVersion rootProject.ext.android["targetSdkVersion"]
         versionCode rootProject.ext.android["versionCode"]
         versionName rootProject.ext.android["versionName"]
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        if (devBuildProperty) {
-            // 调试，指定编译打包的资源文件
-            resConfigs("zh", "xxxhdpi")
-        }
+        consumerProguardFiles 'consumer-rules.pro'
     }
 
     buildTypes {
@@ -51,10 +37,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation rootProject.ext.deps["androidx.appcompat"]
     implementation rootProject.ext.deps["androidx.core-ktx"]
-    implementation rootProject.ext.deps["androidx.androidx.constraintlayout"]
     testImplementation rootProject.ext.deps["junit"]
     androidTestImplementation rootProject.ext.deps["androidx.test.ext"]
     androidTestImplementation rootProject.ext.deps["androidx.test.espresso"]
-
-    implementation project(':base')
 }

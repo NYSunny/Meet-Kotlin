@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Meet-Kotlin</string>
+    <string name="splash_text">相遇总是美好的</string>
 </resources>
