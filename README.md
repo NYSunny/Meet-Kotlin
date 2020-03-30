@@ -200,13 +200,6 @@ org.gradle.caching=true
 若开发者没有声明该属性，ratio_float的默认值是1.86，小于2.0，应用跑在高宽比大于这个值的全面屏手机上，默认不会全屏显示，底部会留黑，**考虑到越来越多的超长手机出现，
 建议开发者将`Maximum Aspect Ratio ≥ 2.2`或更多，如果应用的`android:resizeableActivity`已经设置为`true`，就不必设置`Maximum Aspect Ratio`了**
 
-### 刘海屏、水滴屏适配
-
-首先，我们先明确刘海屏(包括水滴屏，以下我们统称为刘海屏)适配的标准接口(Google官方接口)是在Android P(Android 9.0)上提供的，在Android P且有刘海屏的手机上，
-我们只需要实现Google提供的标准接口就能实现对刘海屏的适配(国内各大手机厂商在Android P上也遵从了Google标准API)，但是在Android P以前且有刘海屏的手机上怎么办
-呢？没办法，我们还得适配各家手机厂商，例如：
-小米有刘海屏且系统为Android O的手机对刘海屏的适配(https://dev.mi.com/console/doc/detail?pId=1293)
-
 ### 沉浸式状态栏适配
 
 沉浸式状态栏一般是指透明状态栏，即页面内容或背景延伸到状态栏区域，有时候如果不是图片背景需要延伸到状态栏里面，能不使用沉浸式状态栏就不使用沉浸式状态栏，实现沉浸式
@@ -283,4 +276,75 @@ Android 6.0以下系统的黑白字符适配请移步各家厂商的开放平台
 [vivo开放平台](https://dev.vivo.com.cn/documentCenter/doc/103)
 [OPPO开放平台](https://open.oppomobile.com/wiki/doc#id=10161)
 [魅族开放平台](http://open-wiki.flyme.cn/doc-wiki/index#id?79)
+
+### 异形屏适配
+
+首先，我们先明确刘海屏(包括水滴屏，以下我们统称为刘海屏)适配的标准接口(Google官方接口)是在Android P(Android 9.0)上提供的，在Android P且有刘海屏的手机上，
+我们只需要实现Google提供的标准接口就能实现对刘海屏的适配(国内各大手机厂商在Android P上也遵从了Google标准API)，但是在Android P以前且有刘海屏的手机上怎么办
+呢？没办法，我们还得适配各家手机厂商。
+
+#### Android P及以上系统异形屏适配
+
+Android P 提供了 3 种显示模式供开发者选择，分别是：
+- 默认模式（LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT）
+- 刘海区绘制模式（ LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES）
+- 刘海区不绘制模式（LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER）
+
+**默认模式（LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT）**
+为了在不影响操作的情况下，尽可能利用刘海屏的显示区域，有以下表现：
+|     | 非全屏(normal mode) | 全屏(fullscreen mode) |
+| --- |        ---         |         ---          |
+| 竖屏(portrait mode) | 使用耳朵区 | 禁用耳朵区 |
+| 横屏（landscape mode） | 禁用耳朵区 | 禁用耳朵区 |
+
+注：所谓全屏（fullscreen mode），是指隐藏状态栏（status bar），即通过 SYSTEM_UI_FLAG_FULLSCREEN 实现的效果。
+
+示例代码：
+```kotlin
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+        val lp = window.attributes
+        lp.layoutInDisplayCutoutMode =
+            WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+        window.attributes = lp
+    }
+```
+
+Android P之后Android提供了标准的接口用于获取异形屏的安全区域：
+```kotlin
+    window.decorView.post {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            val displayCutout = window.decorView.rootWindowInsets?.displayCutout
+            i("安全区域距离屏幕左边的距离：${displayCutout?.safeInsetLeft}")
+            i("安全区域距离屏幕右边的距离：${displayCutout?.safeInsetRight}")
+            i("安全区域距离屏幕顶部的距离：${displayCutout?.safeInsetTop}")
+            i("安全区域距离屏幕底部的距离：${displayCutout?.safeInsetBottom}")
+
+            val rects = displayCutout?.boundingRects
+            if (rects.isNullOrEmpty()) {
+                i("不是刘海屏")
+            } else {
+                i("刘海屏数量：${rects.size}")
+                for (rect in rects) {
+                    i("刘海屏区域：$rect")
+                }
+            }
+        }
+    }
+```
+
+输出：
+```
+2020-03-30 15:23:09.613 17184-17184/com.johnny.meet_kotlin I/Meet-Kotlin: 安全区域距离屏幕左边的距离：0
+2020-03-30 15:23:09.613 17184-17184/com.johnny.meet_kotlin I/Meet-Kotlin: 安全区域距离屏幕右边的距离：0
+2020-03-30 15:23:09.613 17184-17184/com.johnny.meet_kotlin I/Meet-Kotlin: 安全区域距离屏幕顶部的距离：88
+2020-03-30 15:23:09.613 17184-17184/com.johnny.meet_kotlin I/Meet-Kotlin: 安全区域距离屏幕底部的距离：88
+2020-03-30 15:23:09.613 17184-17184/com.johnny.meet_kotlin I/Meet-Kotlin: 刘海屏数量：2
+2020-03-30 15:23:09.613 17184-17184/com.johnny.meet_kotlin I/Meet-Kotlin: 刘海屏区域：Rect(342, 0 - 738, 88)
+2020-03-30 15:23:09.613 17184-17184/com.johnny.meet_kotlin I/Meet-Kotlin: 刘海屏区域：Rect(342, 2072 - 738, 2160)
+```
+
+#### Android P以下系统的异形屏适配
+
+需要查看各家手机厂商提供的文档。
+不想翻看文档的可以移步这篇文章：[Android P 刘海屏适配全攻略](https://juejin.im/post/5b1930835188257d7541ba33)
 
