@@ -1,15 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="SpUsage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GuideActivity"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvSkip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="20dp"
+        android:padding="5dp"
+        android:text="@string/text_skip"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivMusic"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="5dp"
+        android:padding="5dp"
+        android:src="@drawable/img_guide_music"
+        app:layout_constraintBottom_toBottomOf="@id/tvSkip"
+        app:layout_constraintEnd_toStartOf="@id/tvSkip"
+        app:layout_constraintTop_toTopOf="@id/tvSkip" />
+
+    <ImageView
+        android:id="@+id/ivPoint1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="100dp"
+        android:src="@drawable/img_guide_point_p"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/ivPoint2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivPoint2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/img_guide_point"
+        app:layout_constraintBottom_toBottomOf="@id/ivPoint1"
+        app:layout_constraintEnd_toStartOf="@id/ivPoint3"
+        app:layout_constraintStart_toEndOf="@id/ivPoint1"
+        app:layout_constraintTop_toTopOf="@id/ivPoint1" />
+
+    <ImageView
+        android:id="@+id/ivPoint3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_guide_point"
+        app:layout_constraintBottom_toBottomOf="@id/ivPoint2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/ivPoint2"
+        app:layout_constraintTop_toTopOf="@id/ivPoint2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

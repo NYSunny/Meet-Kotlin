@@ -2,11 +2,10 @@ package com.johnny.base.manager
 
 import android.content.res.AssetFileDescriptor
 import android.media.MediaPlayer
-import android.os.Build
 import android.os.Handler
 import android.os.Message
-import androidx.annotation.RequiresApi
 import com.johnny.base.WeakRefHandler
+import java.io.FileDescriptor
 
 /**
  * 功能：
@@ -42,15 +41,14 @@ class MediaPlayerManager {
     }
 
     private val mMediaPlayer = MediaPlayer()
-    private var mCurrentMediaStatus = MEDIA_STATUS_STOP
+    var mCurrentMediaStatus = MEDIA_STATUS_STOP
     var onProgressListener: OnProgressListener? = null
     private val mHandler = WeakRefHandler(HandlerCallback())
 
-    @RequiresApi(Build.VERSION_CODES.N)
-    fun startPlay(path: AssetFileDescriptor) {
+    fun startPlay(afd: AssetFileDescriptor) {
         try {
             this.mMediaPlayer.reset()
-            this.mMediaPlayer.setDataSource(path)
+            this.mMediaPlayer.setDataSource(afd.fileDescriptor, afd.startOffset, afd.length)
             this.mMediaPlayer.prepare()
             this.mMediaPlayer.start()
             this.mCurrentMediaStatus = MEDIA_STATUS_PLAYING

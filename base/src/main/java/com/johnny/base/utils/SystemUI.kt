@@ -20,7 +20,7 @@ private const val DEFAULT_STATUS_BAR_COLOR = Color.TRANSPARENT
 /**
  * 沉浸式状态栏适配(API 19以上)
  */
-fun fixSystemUI(activity: Activity, @ColorInt statusBarColor: Int = DEFAULT_STATUS_BAR_COLOR) {
+fun  fixSystemUI(activity: Activity, @ColorInt statusBarColor: Int = DEFAULT_STATUS_BAR_COLOR) {
     // 适配android 5.0
     val window = activity.window
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -110,25 +110,4 @@ fun fixNotchScreen(activity: Activity) {
             WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
         window.attributes = lp
     }
-
-    window.decorView.post {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            val displayCutout = window.decorView.rootWindowInsets?.displayCutout
-            i("安全区域距离屏幕左边的距离：${displayCutout?.safeInsetLeft}")
-            i("安全区域距离屏幕右边的距离：${displayCutout?.safeInsetRight}")
-            i("安全区域距离屏幕顶部的距离：${displayCutout?.safeInsetTop}")
-            i("安全区域距离屏幕底部的距离：${displayCutout?.safeInsetBottom}")
-
-            val rects = displayCutout?.boundingRects
-            if (rects.isNullOrEmpty()) {
-                i("不是刘海屏")
-            } else {
-                i("刘海屏数量：${rects.size}")
-                for (rect in rects) {
-                    i("刘海屏区域：$rect")
-                }
-            }
-        }
-    }
-
 }

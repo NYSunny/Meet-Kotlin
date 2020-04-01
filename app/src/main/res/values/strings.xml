@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Meet-Kotlin</string>
-    <string name="splash_text">相遇总是美好的</string>
+    <string name="text_splash">相遇总是美好的</string>
+
+    <string name="text_guide_pager_1">每个人，都是一颗孤独的星球</string>
+    <string name="text_guide_pager_2">我们在黑夜中寻找光明</string>
+    <string name="text_guide_pager_3">如果遇见，请面带微笑</string>
+    <string name="text_skip">跳过</string>
 </resources>
