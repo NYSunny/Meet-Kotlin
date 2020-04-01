@@ -98,7 +98,6 @@ class GuideActivity : BaseUIActivity() {
             }
         }
 
-
         // 初始化ViewPager
         val adapter = Adapter(views)
         viewPager.adapter = adapter

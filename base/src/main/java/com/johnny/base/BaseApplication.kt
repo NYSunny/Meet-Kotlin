@@ -1,6 +1,7 @@
 package com.johnny.base
 
 import android.app.Application
+import com.johnny.base.manager.BmobManager
 
 /**
  * @author Johnny
@@ -16,6 +17,9 @@ open class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         mAppApplication = this
+
+        // init Bmob
+        BmobManager.init()
     }
 
 }

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.johnny.meet_kotlin">
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:name=".AppApplication"
-        android:allowBackup="true"
+        android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:allowBackup">
 
         <meta-data
             android:name="android.max_aspect"
@@ -30,7 +29,7 @@
         <!--vivo,oppo异形屏手机的设置中都有控制使用和不使用刘海屏的开关，Android P之前代码层面没有控制使用不使用耳朵区的逻辑-->
 
         <activity
-            android:name=".ui.GuideActivity"
+            android:name=".ui.SplashActivity"
             android:theme="@style/Style_Full_Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,9 +38,19 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.SplashActivity" />
-        <activity android:name=".ui.LoginActivity" />
+        <activity
+            android:name=".ui.GuideActivity"
+            android:theme="@style/Style_Full_Screen" />
+
+        <activity
+            android:name=".ui.LoginActivity"
+            android:theme="@style/Style_Full_Screen" />
+
         <activity android:name=".ui.MainActivity" />
+
+        <provider
+            android:name="cn.bmob.v3.util.BmobContentProvider"
+            android:authorities="com.johnny.meet_kotlin.BmobContentProvider"></provider>
     </application>
 
 </manifest>

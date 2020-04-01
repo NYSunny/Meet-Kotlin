@@ -30,6 +30,8 @@ android {
         }
     }
 
+    // Bmob中需要使用HttpClient
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -40,4 +42,11 @@ dependencies {
     testImplementation rootProject.ext.deps["junit"]
     androidTestImplementation rootProject.ext.deps["androidx.test.ext"]
     androidTestImplementation rootProject.ext.deps["androidx.test.espresso"]
+
+    implementation rootProject.ext.deps["bmobsdk"]
+    implementation rootProject.ext.deps["rxjava2"]
+    implementation rootProject.ext.deps["rxandroid"]
+    implementation rootProject.ext.deps["okio"]
+    implementation rootProject.ext.deps["gson"]
+    implementation rootProject.ext.deps["okhttp3"]
 }
