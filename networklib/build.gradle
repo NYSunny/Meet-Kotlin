@@ -46,4 +46,5 @@ dependencies {
 
     api rootProject.ext.deps["androidx.fragment"]
     api rootProject.ext.deps["androidx.annotation"]
+    implementation rootProject.ext.deps["facebook.conceal"]
 }

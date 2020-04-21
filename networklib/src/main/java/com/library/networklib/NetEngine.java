@@ -21,8 +21,7 @@ import retrofit2.Retrofit;
  * https://blog.csdn.net/weixin_35973945/article/details/82021116
  * https://www.cnblogs.com/blogs-of-lxl/p/10136582.html
  *
- * @author niyang
- * @date 2019/3/25
+ * @author Johnny
  */
 public final class NetEngine implements IApiFactory {
 

@@ -11,8 +11,7 @@ import okio.BufferedSource;
 import retrofit2.HttpException;
 
 /**
- * @author niyang
- * @date 2019/3/26
+ * @author Johnny
  */
 public class ExceptionHandler {
 

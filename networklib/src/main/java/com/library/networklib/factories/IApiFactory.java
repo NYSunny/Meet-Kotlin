@@ -1,8 +1,7 @@
 package com.library.networklib.factories;
 
 /**
- * @author niyang
- * @date 2019/3/26
+ * @author Johnny
  */
 public interface IApiFactory {
 

@@ -10,8 +10,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * @author niyang
- * @date 2019/3/25
+ * @author Johnny
  */
 public abstract class BaseHeadersInterceptor implements Interceptor {
 

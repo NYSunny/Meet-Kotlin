@@ -21,8 +21,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 /**
- * @author niyang
- * @date 2019/3/31
+ * @author Johnny
  */
 public class DefaultProgressDialog extends DialogFragment {
 

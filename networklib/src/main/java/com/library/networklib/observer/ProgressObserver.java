@@ -5,8 +5,7 @@ import androidx.fragment.app.FragmentActivity;
 import io.reactivex.disposables.Disposable;
 
 /**
- * @author niyang
- * @date 2019/3/31
+ * @author Johnny
  */
 public abstract class ProgressObserver<T> extends DefaultObserver<T> {
 

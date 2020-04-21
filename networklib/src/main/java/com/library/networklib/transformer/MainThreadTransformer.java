@@ -7,8 +7,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
- * @author niyang
- * @date 2019/3/26
+ * @author Johnny
  */
 public class MainThreadTransformer implements ObservableTransformer {
 

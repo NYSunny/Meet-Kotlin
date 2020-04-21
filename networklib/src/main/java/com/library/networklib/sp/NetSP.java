@@ -1,12 +1,11 @@
 package com.library.networklib.sp;
 
+import com.library.networklib.hawk.Hawk;
+
 import java.util.Map;
 
-import top.sunny8519.utilslib.hawk.Hawk;
-
 /**
- * @author niyang
- * @date 2019/3/26
+ * @author Johnny
  */
 public class NetSP {
 

@@ -21,8 +21,7 @@ import okio.BufferedSource;
 import static okhttp3.internal.platform.Platform.INFO;
 
 /**
- * @author niyang
- * @date 2019/3/25
+ * @author Johnny
  */
 public class HttpLoggingInterceptor implements Interceptor {
     private static final Charset UTF8 = Charset.forName("UTF-8");

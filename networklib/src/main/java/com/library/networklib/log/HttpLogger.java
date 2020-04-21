@@ -1,8 +1,7 @@
 package com.library.networklib.log;
 
 /**
- * @author niyang
- * @date 2019/3/25
+ * @author Johnny
  */
 public class HttpLogger implements HttpLoggingInterceptor.Logger {
 

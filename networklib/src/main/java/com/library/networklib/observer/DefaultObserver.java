@@ -7,8 +7,7 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 
 /**
- * @author niyang
- * @date 2019/3/26
+ * @author Johnny
  */
 public abstract class DefaultObserver<T> implements Observer<T> {
 

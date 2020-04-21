@@ -23,8 +23,7 @@ import io.reactivex.annotations.Nullable;
 /**
  * https认证
  *
- * @author niyang
- * @date 2019/3/5
+ * @author Johnny
  */
 public final class SSLHelper {
 

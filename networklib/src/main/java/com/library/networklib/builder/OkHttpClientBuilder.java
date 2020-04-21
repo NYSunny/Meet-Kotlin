@@ -9,8 +9,7 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 
 /**
- * @author niyang
- * @date 2019/3/4
+ * @author Johnny
  */
 public class OkHttpClientBuilder {
 
