@@ -5,7 +5,6 @@ import android.media.MediaPlayer
 import android.os.Handler
 import android.os.Message
 import com.johnny.base.WeakRefHandler
-import java.io.FileDescriptor
 
 /**
  * 功能：

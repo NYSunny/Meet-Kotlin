@@ -1,4 +1,4 @@
-package com.johnny.meet_kotlin.ui
+package com.johnny.meet_kotlin.view
 
 import android.content.Context
 import android.graphics.drawable.AnimationDrawable
@@ -10,10 +10,15 @@ import com.johnny.meet_kotlin.R
 import kotlinx.android.synthetic.main.view_guide.view.*
 
 /**
+ * 引导页View
+ *
  * @author Johnny
  */
-class GuideView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) :
-    ConstraintLayout(context, attrs, defStyleAttr) {
+class GuideView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : ConstraintLayout(context, attrs, defStyleAttr) {
 
     init {
         LayoutInflater.from(context).inflate(R.layout.view_guide, this, true)
@@ -27,15 +32,11 @@ class GuideView(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int
 
     fun startAnimation() {
         val drawable = iv_guide.drawable
-        if (drawable is AnimationDrawable) {
-            drawable.start()
-        }
+        if (drawable is AnimationDrawable) drawable.start()
     }
 
     fun stopAnimation() {
         val drawable = iv_guide.drawable
-        if (drawable is AnimationDrawable) {
-            drawable.stop()
-        }
+        if (drawable is AnimationDrawable) drawable.stop()
     }
 }

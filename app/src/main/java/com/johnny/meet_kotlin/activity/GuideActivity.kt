@@ -1,4 +1,4 @@
-package com.johnny.meet_kotlin.ui
+package com.johnny.meet_kotlin.activity
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
@@ -11,6 +11,7 @@ import androidx.viewpager.widget.ViewPager
 import com.johnny.base.BaseUIActivity
 import com.johnny.base.manager.MediaPlayerManager
 import com.johnny.meet_kotlin.R
+import com.johnny.meet_kotlin.view.GuideView
 import kotlinx.android.synthetic.main.activity_guide.*
 
 /**
@@ -99,7 +100,8 @@ class GuideActivity : BaseUIActivity() {
         }
 
         // 初始化ViewPager
-        val adapter = Adapter(views)
+        val adapter =
+            Adapter(views)
         viewPager.adapter = adapter
         viewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {

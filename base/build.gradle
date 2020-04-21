@@ -36,17 +36,19 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation rootProject.ext.deps["kotlin-stdlib-jdk7"]
     implementation rootProject.ext.deps["androidx.appcompat"]
     implementation rootProject.ext.deps["androidx.core-ktx"]
     testImplementation rootProject.ext.deps["junit"]
     androidTestImplementation rootProject.ext.deps["androidx.test.ext"]
     androidTestImplementation rootProject.ext.deps["androidx.test.espresso"]
 
-    implementation rootProject.ext.deps["bmobsdk"]
-    implementation rootProject.ext.deps["rxjava2"]
-    implementation rootProject.ext.deps["rxandroid"]
-    implementation rootProject.ext.deps["okio"]
-    implementation rootProject.ext.deps["gson"]
-    implementation rootProject.ext.deps["okhttp3"]
+    api rootProject.ext.deps["bmobsdk"]
+    api rootProject.ext.deps["rxjava2"]
+    api rootProject.ext.deps["rxandroid"]
+    api rootProject.ext.deps["okio"]
+    api rootProject.ext.deps["gson"]
+    api rootProject.ext.deps["okhttp3"]
+
+    api project(':networklib')
 }

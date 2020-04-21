@@ -20,7 +20,7 @@ private const val DEFAULT_STATUS_BAR_COLOR = Color.TRANSPARENT
 /**
  * 沉浸式状态栏适配(API 19以上)
  */
-fun  fixSystemUI(activity: Activity, @ColorInt statusBarColor: Int = DEFAULT_STATUS_BAR_COLOR) {
+fun fixSystemUI(activity: Activity, @ColorInt statusBarColor: Int = DEFAULT_STATUS_BAR_COLOR) {
     // 适配android 5.0
     val window = activity.window
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {

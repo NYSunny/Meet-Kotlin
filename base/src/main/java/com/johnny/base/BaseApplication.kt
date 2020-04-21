@@ -9,9 +9,9 @@ import com.johnny.base.manager.BmobManager
 open class BaseApplication : Application() {
 
     companion object {
-        private var mAppApplication: Application? = null
+        private lateinit var mAppApplication: Application
 
-        fun getApplication(): Application = this.mAppApplication!!
+        fun getApplication(): Application = this.mAppApplication
     }
 
     override fun onCreate() {

@@ -1,4 +1,4 @@
-package com.johnny.meet_kotlin.ui
+package com.johnny.meet_kotlin.activity
 
 import android.os.Build
 import android.os.Bundle
