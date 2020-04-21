@@ -1,4 +1,4 @@
-package com.library.networklib.java.factories;
+package com.library.networklib.factories;
 
 /**
  * @author niyang

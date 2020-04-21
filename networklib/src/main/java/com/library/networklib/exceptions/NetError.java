@@ -1,4 +1,4 @@
-package com.library.networklib.java.exceptions;
+package com.library.networklib.exceptions;
 
 /**
  * @author niyang

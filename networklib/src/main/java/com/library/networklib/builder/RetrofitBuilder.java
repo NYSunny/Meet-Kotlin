@@ -1,8 +1,8 @@
-package com.library.networklib.java.builder;
+package com.library.networklib.builder;
 
-import com.library.networklib.java.auth.SSLHelper;
-import com.library.networklib.java.log.HttpLogger;
-import com.library.networklib.java.log.HttpLoggingInterceptor;
+import com.library.networklib.auth.SSLHelper;
+import com.library.networklib.log.HttpLogger;
+import com.library.networklib.log.HttpLoggingInterceptor;
 
 import java.util.concurrent.TimeUnit;
 

@@ -1,4 +1,4 @@
-package com.library.networklib.java.interceptors;
+package com.library.networklib.interceptors;
 
 import java.io.IOException;
 import java.util.Map;

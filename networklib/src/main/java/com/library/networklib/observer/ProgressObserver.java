@@ -1,4 +1,4 @@
-package com.library.networklib.java.observer;
+package com.library.networklib.observer;
 
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;

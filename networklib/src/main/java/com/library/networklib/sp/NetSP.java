@@ -1,4 +1,4 @@
-package com.library.networklib.java.sp;
+package com.library.networklib.sp;
 
 import java.util.Map;
 

@@ -1,4 +1,4 @@
-package com.library.networklib.java.auth;
+package com.library.networklib.auth;
 
 import android.annotation.SuppressLint;
 

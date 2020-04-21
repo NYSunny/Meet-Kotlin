@@ -1,7 +1,7 @@
-package com.library.networklib.java;
+package com.library.networklib;
 
-import com.library.networklib.java.factories.IApiFactory;
-import com.library.networklib.java.transformer.MainThreadTransformer;
+import com.library.networklib.factories.IApiFactory;
+import com.library.networklib.transformer.MainThreadTransformer;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

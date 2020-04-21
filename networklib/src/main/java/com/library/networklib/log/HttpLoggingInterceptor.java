@@ -1,4 +1,4 @@
-package com.library.networklib.java.log;
+package com.library.networklib.log;
 
 import java.io.EOFException;
 import java.io.IOException;

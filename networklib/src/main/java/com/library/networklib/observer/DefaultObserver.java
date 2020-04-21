@@ -1,7 +1,7 @@
-package com.library.networklib.java.observer;
+package com.library.networklib.observer;
 
-import com.library.networklib.java.exceptions.ExceptionHandler;
-import com.library.networklib.java.exceptions.NetError;
+import com.library.networklib.exceptions.ExceptionHandler;
+import com.library.networklib.exceptions.NetError;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;

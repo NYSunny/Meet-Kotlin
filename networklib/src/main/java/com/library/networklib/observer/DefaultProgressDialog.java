@@ -1,4 +1,4 @@
-package com.library.networklib.java.observer;
+package com.library.networklib.observer;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;

@@ -1,4 +1,4 @@
-package com.library.networklib.java.transformer;
+package com.library.networklib.transformer;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
