@@ -21,10 +21,10 @@ import java.util.*
 @SuppressLint("SimpleDateFormat")
 private val TIME_FORMAT = SimpleDateFormat("yyyy:MM:dd HH:mm:ss")
 
-fun i(msg: String, isWrite: Boolean = false) {
+fun i(tag: String = BuildConfig.LOG_TAG, msg: String, isWrite: Boolean = false) {
     when {
         BuildConfig.LOG_DEBUG && msg.isNotBlank() -> {
-            Log.i(BuildConfig.LOG_TAG, msg)
+            Log.i(tag, msg)
             if (isWrite) {
                 write2File(msg)
             }
@@ -32,10 +32,10 @@ fun i(msg: String, isWrite: Boolean = false) {
     }
 }
 
-fun e(msg: String, isWrite: Boolean = false) {
+fun e(tag: String = BuildConfig.LOG_TAG, msg: String, isWrite: Boolean = false) {
     when {
         BuildConfig.LOG_DEBUG && msg.isNotBlank() -> {
-            Log.e(BuildConfig.LOG_TAG, msg)
+            Log.e(tag, msg)
             if (isWrite) {
                 write2File(msg)
             }
@@ -49,7 +49,7 @@ fun e(msg: String, isWrite: Boolean = false) {
 private fun write2File(msg: String) {
     if (Environment.getExternalStorageState() == Environment.MEDIA_MOUNTED) {
         // 获取文件保存路径/storage/emulated/0/Android/data/com.johnny.meet_kotlin/files/log
-        var absolutePath = BaseApplication.getApplication().getExternalFilesDir("log")?.absolutePath
+        var absolutePath = getApp().getExternalFilesDir("log")?.absolutePath
         absolutePath = absolutePath ?: "/sdcard/Meet"
         val fileGroup = File(absolutePath)
         if (!fileGroup.exists()) {
@@ -58,7 +58,7 @@ private fun write2File(msg: String) {
         val content = TIME_FORMAT.format(Date()).plus(" ").plus(msg).plus("\n")
         val fileOutputStream: FileOutputStream
         var bufferedWriter: BufferedWriter? = null
-        i(absolutePath)
+        i(msg = absolutePath)
         try {
             fileOutputStream = FileOutputStream(absolutePath.plus("/meet.log"), true)
             bufferedWriter =

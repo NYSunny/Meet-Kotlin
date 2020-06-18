@@ -1,11 +1,11 @@
-package com.johnny.meet_kotlin.view
+package com.johnny.base.views
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
-import com.johnny.meet_kotlin.R
+import com.johnny.base.R
 
 /**
  * 登录时图片验证
@@ -42,7 +42,7 @@ class PictureCheckView @JvmOverloads constructor(
     private var moveX = 0
     private val errorValue = 10
 
-    var mOnCheckSuccessListener: OnCheckSuccessListener? = null
+    var onCheckListener: OnCheckListener? = null
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         this.mWidth = w
@@ -81,8 +81,10 @@ class PictureCheckView @JvmOverloads constructor(
                 if (this.moveX > this.lineX - this.errorValue && this.moveX < this.lineX + this.errorValue) {
                     // 重置moveX
                     this.moveX = this.mWidth / 3
-                    this.mOnCheckSuccessListener?.onCheckSuccess()
+                    this.onCheckListener?.onCheckSuccess()
                     invalidate()
+                } else {
+                    this.onCheckListener?.onCheckFail()
                 }
             }
         }
@@ -147,7 +149,9 @@ class PictureCheckView @JvmOverloads constructor(
         )
     }
 
-    interface OnCheckSuccessListener {
+    interface OnCheckListener {
         fun onCheckSuccess()
+
+        fun onCheckFail()
     }
 }

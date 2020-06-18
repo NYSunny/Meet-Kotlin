@@ -18,7 +18,7 @@ class MainActivity : BaseUIActivity() {
         val mediaPlayer = MediaPlayerManager()
         mediaPlayer.onProgressListener = object : MediaPlayerManager.OnProgressListener {
             override fun onProgressListener(currentPosition: Int, percent: Int) {
-                i("currentPosition = $currentPosition percent = $percent")
+                i(msg = "currentPosition = $currentPosition percent = $percent")
             }
         }
         mediaPlayer.startPlay(resources.openRawResourceFd(R.raw.music))

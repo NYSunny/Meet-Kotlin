@@ -463,7 +463,8 @@ sub_view.startAnimation(anim)
 [Android动画总结——布局动画、转场动画](https://www.jianshu.com/p/4e7bbe57ac8d)
 [Android 转场动画](https://juejin.im/post/5b0e8554f265da08ed7a15d1)
 
-
+## 启动优化
+https://juejin.im/post/5e6f18a951882549422ef333#heading-79
 
 
 

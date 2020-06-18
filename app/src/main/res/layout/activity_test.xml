@@ -39,4 +39,43 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnModify" />
+
+    <Button
+        android:id="@+id/btnStartService"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="startService"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnQuery" />
+
+    <Button
+        android:id="@+id/btnStopService"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="stopService"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnStartService" />
+
+    <Button
+        android:id="@+id/btnANR"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="产生ANR"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnStopService" />
+
+    <Button
+        android:id="@+id/btnNextClick"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="下一个事件"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnANR" />
 </androidx.constraintlayout.widget.ConstraintLayout>

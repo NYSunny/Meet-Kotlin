@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Map;
 
 import io.reactivex.annotations.NonNull;
+import io.reactivex.annotations.Nullable;
 import okhttp3.Headers;
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -41,5 +42,6 @@ public abstract class BaseHeadersInterceptor implements Interceptor {
         return builder.build();
     }
 
+    @Nullable
     public abstract Map<String, String> buildHeaders();
 }

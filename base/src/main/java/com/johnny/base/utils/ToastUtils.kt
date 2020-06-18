@@ -8,9 +8,17 @@ import com.johnny.base.BaseApplication
  */
 
 fun longToast(text: String) {
-    Toast.makeText(BaseApplication.getApplication(), text, Toast.LENGTH_LONG).show()
+    Toast.makeText(getApp(), text, Toast.LENGTH_LONG).show()
+}
+
+fun longToast(res: Int) {
+    Toast.makeText(getApp(), res, Toast.LENGTH_LONG).show()
 }
 
 fun shortToast(text: String) {
-    Toast.makeText(BaseApplication.getApplication(), text, Toast.LENGTH_SHORT).show()
+    Toast.makeText(getApp(), text, Toast.LENGTH_SHORT).show()
+}
+
+fun shortToast(res: Int) {
+    Toast.makeText(getApp(), res, Toast.LENGTH_SHORT).show()
 }

@@ -1,6 +1,6 @@
-package com.library.networklib;
+package com.library.networklib.kit;
 
-import com.library.networklib.factories.IApiFactory;
+import com.library.networklib.kit.IApiFactory;
 import com.library.networklib.transformer.MainThreadTransformer;
 
 import java.lang.reflect.InvocationHandler;
@@ -23,7 +23,7 @@ import retrofit2.Retrofit;
  *
  * @author Johnny
  */
-public final class NetEngine implements IApiFactory {
+final class NetEngine implements IApiFactory {
 
     private static final String NORMAL_TAG = "NORMAL_TAG";
     private static final String MAIN_THREAD_TAG = "MAIN_THREAD_TAG";

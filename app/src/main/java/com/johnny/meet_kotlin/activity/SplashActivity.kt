@@ -9,7 +9,6 @@ import com.johnny.base.WeakRefHandler
 import com.johnny.base.utils.SpUtils
 import com.johnny.base.utils.startActivity
 import com.johnny.meet_kotlin.R
-import com.johnny.meet_kotlin.test.TestActivity
 
 /**
  * 闪屏页
@@ -55,7 +54,7 @@ class SplashActivity : BaseUIActivity() {
                 // 进入引导页
                 startActivity<GuideActivity>()
             }
-            SpUtils.getString(SP_KEY_TOKEN, "").isNullOrBlank() -> startActivity<TestActivity>()
+            SpUtils.getString(SP_KEY_TOKEN, "").isNullOrBlank() -> startActivity<LoginActivity>()
             else -> startActivity<MainActivity>()
         }
         finish()

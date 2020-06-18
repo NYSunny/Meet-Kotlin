@@ -1,4 +1,4 @@
-package com.library.networklib.factories;
+package com.library.networklib.kit;
 
 /**
  * @author Johnny

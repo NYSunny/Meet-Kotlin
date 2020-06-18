@@ -54,6 +54,8 @@
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="com.johnny.meet_kotlin.BmobContentProvider"
             android:exported="false" />
+
+        <service android:name=".test.TestService" />
     </application>
 
 </manifest>

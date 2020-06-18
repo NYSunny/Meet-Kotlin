@@ -21,6 +21,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 /**
+ * 内置加载弹窗
+ *
  * @author Johnny
  */
 public class DefaultProgressDialog extends DialogFragment {
@@ -49,10 +51,13 @@ public class DefaultProgressDialog extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final Dialog attachDialog = getDialog();
-        attachDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        attachDialog.setCancelable(this.cancelable);
-        attachDialog.setCanceledOnTouchOutside(this.canceledOnTouchOutside);
-        final Window attachWindow = attachDialog.getWindow();
+        Window attachWindow = null;
+        if (attachDialog != null) {
+            attachDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+            attachDialog.setCancelable(this.cancelable);
+            attachDialog.setCanceledOnTouchOutside(this.canceledOnTouchOutside);
+            attachWindow = attachDialog.getWindow();
+        }
         ViewGroup contentView = container;
         if (attachWindow != null) {
             contentView = attachWindow.findViewById(android.R.id.content);

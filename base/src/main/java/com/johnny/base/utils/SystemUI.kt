@@ -86,13 +86,13 @@ private fun addTranslucentView(container: ViewGroup, @ColorInt statusBarColor: I
  */
 fun getStatusBarHeight(): Int {
     val statusBarHeight = 24f
-    val resId = BaseApplication.getApplication().resources.getIdentifier(
+    val resId = getApp().resources.getIdentifier(
         "status_bar_height",
         "dimen",
         "android"
     )
     return if (resId > 0) {
-        BaseApplication.getApplication().resources.getDimensionPixelSize(resId)
+        getApp().resources.getDimensionPixelSize(resId)
     } else {
         TypedValue.applyDimension(
             TypedValue.COMPLEX_UNIT_DIP,

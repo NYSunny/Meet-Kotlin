@@ -1,7 +1,10 @@
 package com.library.networklib.observer;
 
+import android.app.Dialog;
+
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
+
 import io.reactivex.disposables.Disposable;
 
 /**
@@ -49,8 +52,11 @@ public abstract class ProgressObserver<T> extends DefaultObserver<T> {
     }
 
     private void dismissLoadingDialog() {
-        if (this.mProgressDialog != null && this.mProgressDialog.getDialog().isShowing()) {
-            this.mProgressDialog.dismissAllowingStateLoss();
+        if (this.mProgressDialog != null) {
+            final Dialog dialog = this.mProgressDialog.getDialog();
+            if (dialog != null && dialog.isShowing()) {
+                this.mProgressDialog.dismissAllowingStateLoss();
+            }
         }
     }
 }

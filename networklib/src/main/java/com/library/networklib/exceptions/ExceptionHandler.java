@@ -3,6 +3,7 @@ package com.library.networklib.exceptions;
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
@@ -14,8 +15,6 @@ import retrofit2.HttpException;
  * @author Johnny
  */
 public class ExceptionHandler {
-
-    private static final Charset UTF8 = Charset.forName("UTF-8");
 
     public static NetError handleException(Throwable throwable) {
         final NetError netError = new NetError();
@@ -31,10 +30,10 @@ public class ExceptionHandler {
                     source.request(Long.MAX_VALUE);
                     Buffer buffer = source.buffer();
 
-                    Charset charset = UTF8;
+                    Charset charset = StandardCharsets.UTF_8;
                     MediaType contentType = responseBody.contentType();
                     if (contentType != null) {
-                        charset = contentType.charset(UTF8);
+                        charset = contentType.charset(StandardCharsets.UTF_8);
                     }
                     if (isPlaintext(buffer)) {
                         netError.serverErrorMsg = buffer.clone().readString(charset);
@@ -42,9 +41,7 @@ public class ExceptionHandler {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             }
-
         }
         return netError;
     }

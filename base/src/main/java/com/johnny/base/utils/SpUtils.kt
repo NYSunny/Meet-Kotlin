@@ -9,7 +9,7 @@ import com.johnny.base.BaseApplication
 
 object SpUtils {
     private val SP =
-        BaseApplication.getApplication().getSharedPreferences("SP", Context.MODE_PRIVATE)
+        getApp().getSharedPreferences("SP", Context.MODE_PRIVATE)
     private val EDITOR = SP.edit()
 
     fun saveString(key: String, value: String) {
@@ -24,9 +24,9 @@ object SpUtils {
         EDITOR.putInt(key, value).apply()
     }
 
-    fun getString(key: String, defValue: String) = SP.getString(key, defValue)
+    fun getString(key: String, defValue: String): String = SP.getString(key, defValue)!!
 
-    fun getBoolean(key: String, defValue: Boolean) = SP.getBoolean(key, defValue)
+    fun getBoolean(key: String, defValue: Boolean): Boolean = SP.getBoolean(key, defValue)
 
-    fun getInt(key: String, defValue: Int) = SP.getInt(key, defValue)
+    fun getInt(key: String, defValue: Int): Int = SP.getInt(key, defValue)
 }

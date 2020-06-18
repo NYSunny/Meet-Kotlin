@@ -1,7 +1,8 @@
 package com.johnny.base
 
 import android.app.Application
-import com.johnny.base.manager.BmobManager
+import com.johnny.base.bmob.BmobManager
+import com.library.networklib.kit.NetKit
 
 /**
  * @author Johnny
@@ -20,6 +21,9 @@ open class BaseApplication : Application() {
 
         // init Bmob
         BmobManager.init()
+
+        // init network lib
+        NetKit.getInstance().init("http://www.baidu.com")
     }
 
 }
