@@ -29,7 +29,7 @@
         <!--vivo,oppo异形屏手机的设置中都有控制使用和不使用刘海屏的开关，Android P之前代码层面没有控制使用不使用耳朵区的逻辑-->
 
         <activity
-            android:name=".activity.SplashActivity"
+            android:name=".activities.SplashActivity"
             android:theme="@style/Style_Full_Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,16 +39,14 @@
         </activity>
 
         <activity
-            android:name=".activity.GuideActivity"
+            android:name=".activities.GuideActivity"
             android:theme="@style/Style_Full_Screen" />
 
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activities.LoginActivity"
             android:theme="@style/Style_Full_Screen" />
 
-        <activity android:name=".activity.MainActivity" />
-
-        <activity android:name=".test.TestActivity" />
+        <activity android:name=".MainActivity" />
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
@@ -56,6 +54,12 @@
             android:exported="false" />
 
         <service android:name=".test.TestService" />
+
+        <activity android:name=".test.TestActivity"
+            />
+        <activity android:name=".test.FirstActivity" />
+        <activity android:name=".test.SecondActivity"
+            android:launchMode="singleInstance"/>
     </application>
 
 </manifest>

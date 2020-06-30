@@ -1,6 +1,7 @@
 package com.johnny.base
 
 import android.app.Application
+import androidx.multidex.MultiDexApplication
 import com.johnny.base.bmob.BmobManager
 import com.library.networklib.kit.NetKit
 

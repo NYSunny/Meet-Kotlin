@@ -28,6 +28,8 @@ android {
             // 调试，指定编译打包的资源文件
             resConfigs("zh", "xxxhdpi")
         }
+
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -58,4 +60,6 @@ dependencies {
     androidTestImplementation rootProject.ext.deps["androidx.test.espresso"]
 
     implementation rootProject.ext.deps["kotlin-reflect"]
+
+    implementation rootProject.ext.deps["FragmentTabHost"]
 }

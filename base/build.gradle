@@ -51,4 +51,6 @@ dependencies {
     api rootProject.ext.deps["okhttp3"]
 
     api project(':networklib')
+
+    implementation rootProject.ext.deps["androidx.multidex"]
 }

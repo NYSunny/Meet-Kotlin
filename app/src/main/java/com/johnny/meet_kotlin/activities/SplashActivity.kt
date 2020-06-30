@@ -1,4 +1,4 @@
-package com.johnny.meet_kotlin.activity
+package com.johnny.meet_kotlin.activities
 
 import android.os.Bundle
 import android.os.Handler
@@ -8,6 +8,7 @@ import com.johnny.base.SP_KEY_TOKEN
 import com.johnny.base.WeakRefHandler
 import com.johnny.base.utils.SpUtils
 import com.johnny.base.utils.startActivity
+import com.johnny.meet_kotlin.MainActivity
 import com.johnny.meet_kotlin.R
 
 /**
@@ -54,7 +55,7 @@ class SplashActivity : BaseUIActivity() {
                 // 进入引导页
                 startActivity<GuideActivity>()
             }
-            SpUtils.getString(SP_KEY_TOKEN, "").isNullOrBlank() -> startActivity<LoginActivity>()
+            SpUtils.getString(SP_KEY_TOKEN, "").isBlank() -> startActivity<MainActivity>()
             else -> startActivity<MainActivity>()
         }
         finish()

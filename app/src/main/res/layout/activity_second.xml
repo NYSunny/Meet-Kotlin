@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.johnny.meet_kotlin.view.PictureCheckView
-        android:id="@+id/pictureCheckView"
-        android:layout_width="300dp"
-        android:layout_height="180dp"
+    <Button
+        android:id="@+id/btnSkipTestActivity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="SkipTestActivity"
+        android:textAllCaps="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,13 +3,11 @@ package com.johnny.base.utils
 import android.annotation.SuppressLint
 import android.os.Environment
 import android.util.Log
-import com.johnny.base.BaseApplication
 import com.johnny.base.BuildConfig
 import java.io.BufferedWriter
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStreamWriter
-import java.lang.Exception
 import java.nio.charset.Charset
 import java.text.SimpleDateFormat
 import java.util.*

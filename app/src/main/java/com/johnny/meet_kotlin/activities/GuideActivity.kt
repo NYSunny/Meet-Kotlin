@@ -1,4 +1,4 @@
-package com.johnny.meet_kotlin.activity
+package com.johnny.meet_kotlin.activities
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator

@@ -1,8 +1,6 @@
-package com.johnny.meet_kotlin.activity
+package com.johnny.meet_kotlin.activities
 
-import android.Manifest
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -16,8 +14,9 @@ import com.johnny.base.WeakRefHandler
 import com.johnny.base.bmob.BmobManager
 import com.johnny.base.bmob.IMUser
 import com.johnny.base.utils.*
-import com.johnny.base.views.PictureCheckView
+import com.johnny.meet_kotlin.MainActivity
 import com.johnny.meet_kotlin.R
+import com.johnny.meet_kotlin.view.PictureCheckView
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.dialog_login_picture_check.*
 
@@ -98,7 +97,7 @@ class LoginActivity : BaseUIActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnSendAuthCode -> picCheckAndSendAuthCode()
-            R.id.btnLogin -> skipTestActivity()
+            R.id.btnLogin -> login()
         }
     }
 
@@ -130,32 +129,6 @@ class LoginActivity : BaseUIActivity(), View.OnClickListener {
                 }
             }
         })
-    }
-
-    private fun skipTestActivity() {
-        PermissionUtils.permissions(CALENDAR, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            .rationaleCallback(object : OnRationaleCallback {
-                override fun onRationaleCallback(
-                    context: Context,
-                    deniedPermissions: List<String>,
-                    shouldRequest: OnRationaleCallback.OnShouldRequestCallback
-                ) {
-
-                }
-            })
-            .resultCallback(object : OnPermissionCallback {
-
-                override fun onGrantedCallback(grantedPermissions: List<String>) {
-                    TODO("Not yet implemented")
-                }
-
-                override fun onDeniedCallback(
-                    grantedPermissions: List<String>,
-                    deniedPermissions: List<String>,
-                    foreverDeniedPermissions: List<String>
-                ) {
-                }
-            }).request()
     }
 
     /**
