@@ -1,11 +1,10 @@
-package com.johnny.base.bmob
+package com.johnny.meet_kotlin.bmob
 
 import cn.bmob.v3.Bmob
 import cn.bmob.v3.BmobSMS
 import cn.bmob.v3.BmobUser
 import cn.bmob.v3.listener.LogInListener
 import cn.bmob.v3.listener.QueryListener
-import com.johnny.base.BaseApplication
 import com.johnny.base.utils.getApp
 
 /**
@@ -19,7 +18,7 @@ object BmobManager {
         Bmob.initialize(
             getApp(),
             APPLICATION_ID
-        );
+        )
     }
 
     /**

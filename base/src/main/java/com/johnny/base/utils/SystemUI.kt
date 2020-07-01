@@ -16,6 +16,7 @@ import com.johnny.base.BaseApplication
  */
 
 private const val DEFAULT_STATUS_BAR_COLOR = Color.TRANSPARENT
+private var STATUS_BAR_HEIGHT = -1
 
 /**
  * 沉浸式状态栏适配(API 19以上)
@@ -91,6 +92,9 @@ fun getStatusBarHeight(): Int {
         "dimen",
         "android"
     )
+    if (STATUS_BAR_HEIGHT > -1) {
+        return STATUS_BAR_HEIGHT
+    }
     return if (resId > 0) {
         getApp().resources.getDimensionPixelSize(resId)
     } else {
@@ -99,6 +103,8 @@ fun getStatusBarHeight(): Int {
             statusBarHeight,
             Resources.getSystem().displayMetrics
         ).toInt()
+    }.also {
+        STATUS_BAR_HEIGHT = it
     }
 }
 

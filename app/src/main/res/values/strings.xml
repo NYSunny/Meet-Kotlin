@@ -21,4 +21,10 @@
     <string name="text_bottom_tab_plaza">广场</string>
     <string name="text_bottom_tab_chat">聊天</string>
     <string name="text_bottom_tab_me">我的</string>
+    <string name="text_meet">遇见</string>
+    <string name="text_connecting_server">正在连接服务器...</string>
+    <string name="text_random">随机</string>
+    <string name="text_soul">灵魂</string>
+    <string name="text_fate">缘分</string>
+    <string name="text_love">恋爱</string>
 </resources>

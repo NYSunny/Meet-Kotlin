@@ -1,4 +1,4 @@
-package com.johnny.base.bmob
+package com.johnny.meet_kotlin.bmob
 
 import cn.bmob.v3.BmobUser
 

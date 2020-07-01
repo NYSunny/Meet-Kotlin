@@ -1,16 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/color_star_bg"
+    tools:ignore="SpUsage">
+
+    <com.johnny.base.views.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar_height">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/text_meet"
+                android:textColor="@android:color/white"
+                android:textSize="22dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivAdd"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/img_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivCamera"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/img_camera"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivAdd"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.johnny.base.views.TitleBar>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvConnectingServer"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="FragmentStar"
-        android:textAllCaps="false"
+        android:gravity="center"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:text="@string/text_connecting_server"
+        android:textColor="@android:color/white"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleBar" />
+
+    <com.moxun.tagcloudlib.view.TagCloudView
+        android:id="@+id/tagCloudView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:autoScrollMode="uniform"
+        app:layout_constraintBottom_toTopOf="@id/llBottomContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvConnectingServer"
+        app:radiusPercent="0.8"
+        app:scrollSpeed="1" />
+
+    <LinearLayout
+        android:id="@+id/llBottomContainer"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintTop_toBottomOf="@id/tagCloudView">
+
+        <LinearLayout
+            android:id="@+id/llRandom"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_star_bottom_btn_bg_1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_star_card_1" />
+
+            <TextView
+                android:id="@+id/tvRandom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_random"
+                android:textColor="@android:color/white"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llSoul"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_star_bottom_btn_bg_2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_star_card_2" />
+
+            <TextView
+                android:id="@+id/tvSoul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_soul"
+                android:textColor="@android:color/white"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_star_bottom_btn_bg_3"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_star_card_3" />
+
+            <TextView
+                android:id="@+id/tvFate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_fate"
+                android:textColor="@android:color/white"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llLove"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_star_bottom_btn_bg_4"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_star_card_4" />
+
+            <TextView
+                android:id="@+id/tvLove"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_love"
+                android:textColor="@android:color/white"
+                android:textSize="18dp" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

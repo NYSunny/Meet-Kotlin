@@ -11,8 +11,8 @@ import cn.bmob.v3.listener.QueryListener
 import com.johnny.base.BaseUIActivity
 import com.johnny.base.SP_KEY_MOBILE_PHONE
 import com.johnny.base.WeakRefHandler
-import com.johnny.base.bmob.BmobManager
-import com.johnny.base.bmob.IMUser
+import com.johnny.meet_kotlin.bmob.BmobManager
+import com.johnny.meet_kotlin.bmob.IMUser
 import com.johnny.base.utils.*
 import com.johnny.meet_kotlin.MainActivity
 import com.johnny.meet_kotlin.R

@@ -62,4 +62,5 @@ dependencies {
     implementation rootProject.ext.deps["kotlin-reflect"]
 
     implementation rootProject.ext.deps["FragmentTabHost"]
+    implementation rootProject.ext.deps["3dtagcloud"]
 }

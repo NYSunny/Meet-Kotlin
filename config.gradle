@@ -30,7 +30,8 @@ ext {
             "retrofit2-converter-gson"          : 'com.squareup.retrofit2:converter-gson:2.5.0',
             "retrofit2-adapter-rxjava2"         : 'com.squareup.retrofit2:adapter-rxjava2:2.4.0',
             "facebook.conceal"                  : 'com.facebook.conceal:conceal:1.1.3@aar',
-            "FragmentTabHost"                   : 'com.github.NYSunny:FragmentTabHost:v1.0-alpha',
+            "FragmentTabHost"                   : 'com.github.NYSunny:FragmentTabHost:1.0.0',
+            "3dtagcloud"                        : 'com.moxun:tagcloudlib:1.2.0',
             "androidx.multidex"                 : 'androidx.multidex:multidex:2.0.1'
     ]
     maven = [

@@ -24,10 +24,10 @@ class MainActivity : BaseUIActivity() {
 
     /* 底部标签图片 */
     private val tabImages = arrayOf(
-        R.drawable.selector_bottom_tab_star,
-        R.drawable.selector_bottom_tab_plaza,
-        R.drawable.selector_bottom_tab_chat,
-        R.drawable.selector_bottom_tab_me
+        R.drawable.selector_bottom_tab_star_icon,
+        R.drawable.selector_bottom_tab_plaza_icon,
+        R.drawable.selector_bottom_tab_chat_icon,
+        R.drawable.selector_bottom_tab_me_icon
     )
 
     /* 底部标签文本 */
@@ -39,6 +39,7 @@ class MainActivity : BaseUIActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        fixSystemUIEnabled = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupView()
@@ -47,7 +48,6 @@ class MainActivity : BaseUIActivity() {
     private fun setupView() {
         // 初始化FragmentTabHost
         container.setup(this, supportFragmentManager, android.R.id.tabcontent)
-//        container.setFragmentChangeType(CustomFragmentTabHost.FragmentChangeType.ATTACH_DETACH)
         for (index in fragments.indices) {
             val tabSpec = container.newTabSpec(index.toString())
             // 设置底部标签View
@@ -57,6 +57,9 @@ class MainActivity : BaseUIActivity() {
         }
     }
 
+    /**
+     * 获取底部标签View
+     */
     @SuppressLint("InflateParams")
     private fun provideTabView(index: Int): View =
         layoutInflater.inflate(R.layout.view_bottom_tab, null).apply {

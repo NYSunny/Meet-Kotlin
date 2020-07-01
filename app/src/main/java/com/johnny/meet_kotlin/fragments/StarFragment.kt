@@ -1,26 +1,22 @@
 package com.johnny.meet_kotlin.fragments
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.johnny.base.utils.i
 import com.johnny.customfragmenttabhostlib.FragmentTabHostFragment
 import com.johnny.meet_kotlin.R
+import kotlinx.android.synthetic.main.fragment_star.view.*
 
 /**
  * 星球
  *
  * @author Johnny
  */
-class StarFragment : FragmentTabHostFragment() {
+class StarFragment : FragmentTabHostFragment(),View.OnClickListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        i(msg = "StarFragment onCreate is Called")
-    }
+    private lateinit var mContentView: View
 
     @SuppressLint("InflateParams")
     override fun onCreateView(
@@ -28,51 +24,23 @@ class StarFragment : FragmentTabHostFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        i(msg = "StarFragment onCreateView is Called")
-        val contentView = layoutInflater.inflate(R.layout.fragment_star, null)
-        return contentView
+        this.mContentView = layoutInflater.inflate(R.layout.fragment_star, null)
+        setupClickEvent()
+        return this.mContentView
     }
 
-    override fun onResume() {
-        super.onResume()
-        i(msg = "StarFragment onResume is Called")
+    private fun setupClickEvent() {
+        mContentView.ivCamera.setOnClickListener(this)
+        mContentView.ivAdd.setOnClickListener(this)
+        mContentView.llFate.setOnClickListener(this)
+        mContentView.llLove.setOnClickListener(this)
+        mContentView.llRandom.setOnClickListener(this)
+        mContentView.llSoul.setOnClickListener(this)
     }
 
-    override fun onPause() {
-        super.onPause()
-        i(msg = "StarFragment onPause is Called")
-    }
+    override fun onClick(v: View?) {
+        when (v?.id) {
 
-    override fun onStop() {
-        super.onStop()
-        i(msg = "StarFragment onStop is Called")
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        i(msg = "StarFragment onDestroyView is Called")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        i(msg = "StarFragment onDestroy is Called")
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        i(msg = "StarFragment onAttach is Called")
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        i(msg = "StarFragment onDetach is Called")
-    }
-
-    override fun onHide() {
-        i(msg = "StarFragment onHide is Called")
-    }
-
-    override fun onShow() {
-        i(msg = "StarFragment onShow is Called")
+        }
     }
 }
