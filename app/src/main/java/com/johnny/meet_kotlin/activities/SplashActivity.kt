@@ -54,11 +54,11 @@ class SplashActivity : BaseUIActivity() {
                 false
             ).apply {
                 // 进入引导页
-                startActivity<MainActivity>()
+                startActivity<GuideActivity>()
             }
             SpUtils.getString(SP_KEY_TOKEN, "").isBlank() -> {
                 if (BmobManager.isLogin()) startActivity<MainActivity>()
-                else startActivity<MainActivity>()
+                else startActivity<LoginActivity>()
             }
             else -> startActivity<MainActivity>()
         }

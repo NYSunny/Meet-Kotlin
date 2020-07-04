@@ -10,11 +10,9 @@ import android.view.Gravity
 import android.view.View
 import com.johnny.base.BaseUIActivity
 import com.johnny.base.helper.FileHelper
-import com.johnny.base.utils.CAMERA
-import com.johnny.base.utils.OnPermissionCallback
-import com.johnny.base.utils.PermissionUtils
-import com.johnny.base.utils.STORAGE
+import com.johnny.base.utils.*
 import com.johnny.meet_kotlin.R
+import com.johnny.meet_kotlin.bmob.BmobManager
 import kotlinx.android.synthetic.main.activity_upload_basic_info.*
 import kotlinx.android.synthetic.main.dialog_select_photo_or_take_photo.*
 import java.io.File
@@ -99,7 +97,16 @@ class UploadBasicInfoActivity : BaseUIActivity(), View.OnClickListener {
     }
 
     private fun done() {
-
+        val nickName = etNickName.text.toString().trim()
+        this.uploadPhotoFile?.let {
+            val dialog = showLoadingDialog(this, false, getString(R.string.text_uploading_personal_info))
+            BmobManager.uploadPersonalInfo(nickName, it) { isDone ->
+                dialog.dismiss()
+                if (isDone) {
+                    finish()
+                }
+            }
+        }
     }
 
     /**
