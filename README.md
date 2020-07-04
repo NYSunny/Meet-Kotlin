@@ -466,6 +466,8 @@ sub_view.startAnimation(anim)
 ## 启动优化
 https://juejin.im/post/5e6f18a951882549422ef333#heading-79
 
+## 如何添加Dialog进入退出动画？
+
 
 
 

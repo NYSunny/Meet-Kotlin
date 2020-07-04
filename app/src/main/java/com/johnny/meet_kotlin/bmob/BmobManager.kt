@@ -21,6 +21,10 @@ object BmobManager {
         )
     }
 
+    fun getCurrentUser(): IMUser? = BmobUser.getCurrentUser(IMUser::class.java)
+
+    fun isLogin(): Boolean = BmobUser.isLogin()
+
     /**
      * 请求短信验证码
      */

@@ -1,6 +1,7 @@
 package com.johnny.meet_kotlin
 
 import android.content.Context
+import android.os.StrictMode
 import androidx.multidex.MultiDex
 import com.johnny.base.BaseApplication
 import com.johnny.meet_kotlin.bmob.BmobManager

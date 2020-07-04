@@ -27,4 +27,16 @@
     <string name="text_soul">灵魂</string>
     <string name="text_fate">缘分</string>
     <string name="text_love">恋爱</string>
+    <string name="text_take_photo">拍照</string>
+    <string name="text_select_from_album">从相册选择</string>
+    <string name="text_cancel">取消</string>
+    <string name="text_dialog_hint_1">欢迎来到遇见APP</string>
+    <string name="text_dialog_hint_2">听说你是第一次使用</string>
+    <string name="text_dialog_hint_3">快来填写资料吧</string>
+    <string name="text_done">完成</string>
+    <string name="text_upload_photo_title">一张有个性的头像可以吸引人</string>
+    <string name="text_upload_nickname_title">一个名字，一个故事</string>
+    <string name="text_upload_nickname">昵称</string>
+    <string name="text_write_personal_info">填写个人资料</string>
+    <string name="text_please_check_camera">未打开相机，请检查相机功能</string>
 </resources>

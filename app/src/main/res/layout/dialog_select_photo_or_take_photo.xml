@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:divider="@drawable/shape_divider"
+    android:orientation="vertical"
+    android:showDividers="middle"
+    tools:ignore="SpUsage">
+
+    <TextView
+        android:id="@+id/tvTakePhoto"
+        style="@style/style_text_color_primary_18dp"
+        android:text="@string/text_take_photo" />
+
+    <TextView
+        android:id="@+id/tvSelectFromAlbum"
+        style="@style/style_text_color_primary_18dp"
+        android:text="@string/text_select_from_album" />
+
+    <TextView
+        android:id="@+id/tvCancel"
+        style="@style/style_text_color_primary_18dp"
+        android:text="@string/text_cancel" />
+</LinearLayout>

@@ -5,11 +5,18 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.johnny.base.BaseUIActivity
+import com.johnny.base.SP_KEY_TOKEN
+import com.johnny.base.utils.SpUtils
+import com.johnny.base.utils.startActivity
+import com.johnny.meet_kotlin.activities.UploadBasicInfoActivity
+import com.johnny.meet_kotlin.bmob.BmobManager
+import com.johnny.meet_kotlin.bmob.IMUser
 import com.johnny.meet_kotlin.fragments.ChatFragment
 import com.johnny.meet_kotlin.fragments.MeFragment
 import com.johnny.meet_kotlin.fragments.PlazaFragment
 import com.johnny.meet_kotlin.fragments.StarFragment
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.dialog_first_hint.*
 import kotlinx.android.synthetic.main.view_bottom_tab.view.*
 
 class MainActivity : BaseUIActivity() {
@@ -43,6 +50,8 @@ class MainActivity : BaseUIActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setupView()
+
+        checkToken()
     }
 
     private fun setupView() {
@@ -55,6 +64,42 @@ class MainActivity : BaseUIActivity() {
             // FragmentTabHost添加Context和TabSpec
             container.addTab(tabSpec, fragments[index], null)
         }
+    }
+
+    private fun checkToken() {
+        val token = SpUtils.getString(SP_KEY_TOKEN, "")
+        if (!token.isBlank()) {
+            TODO("连接融云服务")
+        } else {
+            val currentUser: IMUser? = BmobManager.getCurrentUser()
+            val tokenPhoto = currentUser?.tokenPhoto
+            val tokenNickName = currentUser?.tokenNickName
+            if (tokenPhoto.isNullOrBlank() || tokenNickName.isNullOrBlank()) {
+                // 上传个人信息
+                uploadBasicInfo()
+            } else {
+                // 用tokenPhoto和tokenNickName获取Token
+                createToken()
+            }
+        }
+    }
+
+    private fun uploadBasicInfo() {
+        com.johnny.base.utils.showDialog(
+            this,
+            R.layout.dialog_first_hint,
+            false,
+            style = R.style.EndInEndOutAnimationDialogTheme
+        ) {
+            ivNext.setOnClickListener {
+                this@showDialog.dismiss()
+                startActivity<UploadBasicInfoActivity>()
+            }
+        }
+    }
+
+    private fun createToken() {
+        TODO("Not yet implemented")
     }
 
     /**

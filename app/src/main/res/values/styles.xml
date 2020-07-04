@@ -1,20 +1,25 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!--全屏Style-->
-    <style name="Style_Full_Screen" parent="Theme.AppCompat.Light.NoActionBar">
+    <!--下面两种方式都是没有标题栏的主题-->
+    <!--<style name="NoActionBarTheme" parent="AppTheme">
         <item name="windowActionBar">false</item>
-        <item name="android:windowFullscreen">true</item>
         <item name="windowNoTitle">true</item>
+    </style>-->
+    <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar" />
+
+    <!--全屏主题-->
+    <style name="FullScreenTheme" parent="NoActionBarTheme">
+        <item name="android:windowFullscreen">true</item>
         <!--解决启动页白屏-->
-<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+        <!--        <item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
 
     <style name="LoginEditTextStyle">
@@ -26,6 +31,15 @@
         <item name="android:textCursorDrawable">@drawable/shape_cursor</item>
         <item name="android:textSize">15dp</item>
         <item name="android:inputType">number</item>
+    </style>
+
+    <style name="style_text_color_primary_18dp">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize" tools:ignore="SpUsage">18dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">15dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 </resources>

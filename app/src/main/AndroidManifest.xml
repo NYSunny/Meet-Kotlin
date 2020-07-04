@@ -8,9 +8,11 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:allowBackup">
+        tools:replace="android:allowBackup"
+        tools:targetApi="q">
 
         <meta-data
             android:name="android.max_aspect"
@@ -30,7 +32,8 @@
 
         <activity
             android:name=".activities.SplashActivity"
-            android:theme="@style/Style_Full_Screen">
+            android:configChanges="keyboard|orientation|fontScale"
+            android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -40,26 +43,39 @@
 
         <activity
             android:name=".activities.GuideActivity"
-            android:theme="@style/Style_Full_Screen" />
+            android:configChanges="keyboard|orientation|fontScale"
+            android:theme="@style/FullScreenTheme" />
 
         <activity
             android:name=".activities.LoginActivity"
-            android:theme="@style/Style_Full_Screen" />
+            android:configChanges="keyboard|orientation|fontScale"
+            android:theme="@style/FullScreenTheme" />
 
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|orientation|fontScale"
+            android:launchMode="singleTask"
+            android:theme="@style/NoActionBarTheme" />
+
+        <activity
+            android:name=".activities.UploadBasicInfoActivity"
+            android:configChanges="keyboard|orientation|fontScale" />
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="com.johnny.meet_kotlin.BmobContentProvider"
             android:exported="false" />
 
-        <service android:name=".test.TestService" />
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
 
-        <activity android:name=".test.TestActivity"
-            />
-        <activity android:name=".test.FirstActivity" />
-        <activity android:name=".test.SecondActivity"
-            android:launchMode="singleInstance"/>
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

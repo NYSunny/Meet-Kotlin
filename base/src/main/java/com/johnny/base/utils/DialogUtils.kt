@@ -1,3 +1,5 @@
+@file:JvmName("DialogUtils")
+
 package com.johnny.base.utils
 
 import android.content.Context
@@ -11,11 +13,13 @@ import com.johnny.base.R
  * @author Johnny
  */
 
+@JvmOverloads
 fun createDialog(
     context: Context,
     layoutResId: Int,
     isCanceled: Boolean,
     gravity: Int = Gravity.CENTER,
+    style: Int? = null,
     block: (AppCompatDialog.() -> Unit)? = null
 ): AppCompatDialog = AppCompatDialog(context, R.style.BaseDialogTheme).also { dialog ->
     dialog.setContentView(layoutResId)
@@ -26,6 +30,7 @@ fun createDialog(
     layoutParams?.height = ViewGroup.LayoutParams.WRAP_CONTENT
     layoutParams?.gravity = gravity
     window?.attributes = layoutParams
+    style?.let { window?.setWindowAnimations(it) }
     block?.let { it(dialog) }
 }
 
@@ -33,13 +38,15 @@ fun showDialog(dialog: AppCompatDialog) {
     if (!dialog.isShowing) dialog.show()
 }
 
+@JvmOverloads
 fun showDialog(
     context: Context,
     layoutResId: Int,
     isCanceled: Boolean = true,
     gravity: Int = Gravity.CENTER,
+    style: Int? = null,
     block: (AppCompatDialog.() -> Unit)? = null
-): AppCompatDialog = createDialog(context, layoutResId, isCanceled, gravity, block).apply {
+): AppCompatDialog = createDialog(context, layoutResId, isCanceled, gravity, style, block).apply {
     show()
 }
 

@@ -10,6 +10,7 @@ import com.johnny.base.utils.SpUtils
 import com.johnny.base.utils.startActivity
 import com.johnny.meet_kotlin.MainActivity
 import com.johnny.meet_kotlin.R
+import com.johnny.meet_kotlin.bmob.BmobManager
 
 /**
  * 闪屏页
@@ -53,9 +54,12 @@ class SplashActivity : BaseUIActivity() {
                 false
             ).apply {
                 // 进入引导页
-                startActivity<GuideActivity>()
+                startActivity<MainActivity>()
             }
-            SpUtils.getString(SP_KEY_TOKEN, "").isBlank() -> startActivity<MainActivity>()
+            SpUtils.getString(SP_KEY_TOKEN, "").isBlank() -> {
+                if (BmobManager.isLogin()) startActivity<MainActivity>()
+                else startActivity<MainActivity>()
+            }
             else -> startActivity<MainActivity>()
         }
         finish()
