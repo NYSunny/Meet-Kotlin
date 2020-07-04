@@ -2,6 +2,7 @@ package com.johnny.meet_kotlin.activities
 
 import android.content.Intent
 import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,7 +18,6 @@ import com.johnny.meet_kotlin.R
 import kotlinx.android.synthetic.main.activity_upload_basic_info.*
 import kotlinx.android.synthetic.main.dialog_select_photo_or_take_photo.*
 import java.io.File
-import java.util.jar.Manifest
 
 /**
  * @author Johnny
@@ -75,6 +75,7 @@ class UploadBasicInfoActivity : BaseUIActivity(), View.OnClickListener {
             // 拍照
             tvTakePhoto.setOnClickListener {
                 dismiss()
+                // TODO:权限请求流程需要完善，这块还要加上权限引导，统一封装
                 PermissionUtils.permissions(CAMERA, STORAGE)
                     .resultCallback(object : OnPermissionCallback {
                         override fun onGrantedCallback(grantedPermissions: List<String>) {
@@ -86,13 +87,13 @@ class UploadBasicInfoActivity : BaseUIActivity(), View.OnClickListener {
                             deniedPermissions: List<String>,
                             foreverDeniedPermissions: List<String>
                         ) {
-                            TODO("Not yet implemented")
                         }
                     }).request()
             }
             // 相册
             tvSelectFromAlbum.setOnClickListener {
                 dismiss()
+                FileHelper.toAlbum(this@UploadBasicInfoActivity)
             }
         }
     }
@@ -107,15 +108,29 @@ class UploadBasicInfoActivity : BaseUIActivity(), View.OnClickListener {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (resultCode == RESULT_OK) {
             when (requestCode) {
+                // 从相机返回
                 FileHelper.REQUEST_CODE_TO_CAMERA -> FileHelper.takePhotoTemFile?.let {
                     FileHelper.startPhotoCrop(
                         this,
                         it
                     )
                 }
-                FileHelper.REQUEST_CODE_PHOTO_CROP -> {
-                    FileHelper.cropTemPath?.let {
-                        this.uploadPhotoFile = File(it)
+                // 从裁剪程序返回
+                FileHelper.REQUEST_CODE_PHOTO_CROP -> FileHelper.cropTemPath?.let {
+                    this.uploadPhotoFile = File(it)
+                }
+                // 从相册返回
+                FileHelper.REQUEST_CODE_TO_ALBUM -> {
+                    val uri: Uri? = data?.data
+                    var path: String? = null
+                    uri?.let {
+                        path = FileHelper.getRealPathFromUri(this, it)
+                    }
+                    if (!path.isNullOrBlank()) {
+                        this.uploadPhotoFile = File(path!!)
+                        FileHelper.startPhotoCrop(this, this.uploadPhotoFile!!)
+                        super.onActivityResult(requestCode, resultCode, data)
+                        return
                     }
                 }
             }

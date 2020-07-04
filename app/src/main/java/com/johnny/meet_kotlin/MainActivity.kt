@@ -1,12 +1,14 @@
 package com.johnny.meet_kotlin
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.johnny.base.BaseUIActivity
 import com.johnny.base.SP_KEY_TOKEN
 import com.johnny.base.utils.SpUtils
+import com.johnny.base.utils.i
 import com.johnny.base.utils.startActivity
 import com.johnny.meet_kotlin.activities.UploadBasicInfoActivity
 import com.johnny.meet_kotlin.bmob.BmobManager
@@ -15,6 +17,7 @@ import com.johnny.meet_kotlin.fragments.ChatFragment
 import com.johnny.meet_kotlin.fragments.MeFragment
 import com.johnny.meet_kotlin.fragments.PlazaFragment
 import com.johnny.meet_kotlin.fragments.StarFragment
+import com.johnny.meet_kotlin.services.CloudService
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_first_hint.*
 import kotlinx.android.synthetic.main.view_bottom_tab.view.*
@@ -69,7 +72,8 @@ class MainActivity : BaseUIActivity() {
     private fun checkToken() {
         val token = SpUtils.getString(SP_KEY_TOKEN, "")
         if (!token.isBlank()) {
-            TODO("连接融云服务")
+            // 启动云服务去连接融云服务
+            startService(Intent(this, CloudService::class.java))
         } else {
             val currentUser: IMUser? = BmobManager.getCurrentUser()
             val tokenPhoto = currentUser?.tokenPhoto
@@ -99,7 +103,7 @@ class MainActivity : BaseUIActivity() {
     }
 
     private fun createToken() {
-        TODO("Not yet implemented")
+        i(msg = "createToken")
     }
 
     /**

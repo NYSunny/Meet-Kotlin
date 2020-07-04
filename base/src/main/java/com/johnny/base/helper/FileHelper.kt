@@ -2,6 +2,7 @@ package com.johnny.base.helper
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.net.Uri
@@ -9,6 +10,7 @@ import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import androidx.core.content.FileProvider
+import androidx.loader.content.CursorLoader
 import com.johnny.base.BuildConfig
 import com.johnny.base.utils.shortToast
 import java.io.File
@@ -20,10 +22,15 @@ import java.util.*
  */
 object FileHelper {
 
+    // 相机
     const val REQUEST_CODE_TO_CAMERA = 1000
+
+    // 裁剪
     const val REQUEST_CODE_PHOTO_CROP = 1001
+
+    // 相册
+    const val REQUEST_CODE_TO_ALBUM = 1002
     private const val FILE_PROVIDER_AUTH = "${BuildConfig.APPLICATION_ID}.provider"
-    private const val JPGDir = "JPG/"
 
     @SuppressLint("SimpleDateFormat")
     private val dataFormat = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss")
@@ -82,5 +89,34 @@ object FileHelper {
         } else {
             shortToast("当前系统中没有裁剪程序")
         }
+    }
+
+    /**
+     * skip to album
+     */
+    fun toAlbum(activity: Activity) {
+        val intent = Intent(Intent.ACTION_PICK)
+        intent.type = "image/*"
+        intent.resolveActivity(activity.packageManager)?.let {
+            activity.startActivityForResult(intent, REQUEST_CODE_TO_ALBUM)
+        }
+    }
+
+    /**
+     * get real file path
+     */
+    fun getRealPathFromUri(context: Context, uri: Uri): String {
+        val projection = arrayOf(MediaStore.Images.Media.DATA)
+        val cursorLoader = CursorLoader(context, uri, projection, null, null, null)
+        val cursor = cursorLoader.loadInBackground()
+        return cursor?.let {
+            if (it.moveToNext()) {
+                val index = it.getColumnIndex(MediaStore.Images.Media.DATA)
+                it.moveToFirst()
+                it.getString(index) ?: ""
+            } else {
+                ""
+            }
+        } ?: ""
     }
 }
