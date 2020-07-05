@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.johnny.base.BaseUIActivity
-import com.johnny.base.SP_KEY_TOKEN
 import com.johnny.base.utils.SpUtils
 import com.johnny.base.utils.i
 import com.johnny.base.utils.startActivity

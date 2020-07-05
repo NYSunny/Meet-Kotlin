@@ -24,6 +24,7 @@ open class BaseUIActivity : AppCompatActivity() {
 
         if (useSystemActionBar) {
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.elevation = 0F
             actionBarTitle()?.let { supportActionBar?.title = it }
         }
     }

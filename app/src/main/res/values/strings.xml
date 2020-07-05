@@ -40,4 +40,13 @@
     <string name="text_write_personal_info">填写个人资料</string>
     <string name="text_please_check_camera">未打开相机，请检查相机功能</string>
     <string name="text_uploading_personal_info">正在上传个人资料</string>
+    <string name="text_gentle_girl">温婉女孩</string>
+    <string name="text_sunshine_boy">阳光男孩</string>
+    <string name="text_to_contact">从通讯录导入</string>
+    <string name="text_please_input_mobile_phone">请输入电话号码</string>
+    <string name="text_error">出错啦~~</string>
+    <string name="text_dont_check_user">未查询到用户</string>
+    <string name="text_search_result">搜索结果</string>
+    <string name="text_recommend_friend">推荐好友</string>
+    <string name="text_searching">正在搜索...</string>
 </resources>

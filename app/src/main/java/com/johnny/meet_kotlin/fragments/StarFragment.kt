@@ -5,8 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.johnny.base.utils.startActivity
 import com.johnny.customfragmenttabhostlib.FragmentTabHostFragment
 import com.johnny.meet_kotlin.R
+import com.johnny.meet_kotlin.activities.AddFriendActivity
 import com.johnny.meet_kotlin.adpters.StarTagAdapter
 import com.johnny.meet_kotlin.model.StarModel
 import kotlinx.android.synthetic.main.fragment_star.view.*
@@ -83,6 +85,5 @@ class StarFragment : FragmentTabHostFragment(), View.OnClickListener {
     private fun skipCamera() {
     }
 
-    private fun skipAdd() {
-    }
+    private fun skipAdd() = context?.startActivity<AddFriendActivity>()
 }

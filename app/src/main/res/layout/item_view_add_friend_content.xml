@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/itemView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:minHeight="80dp"
+    android:padding="15dp"
+    tools:ignore="SpUsage">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivAvatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_boy_icon"
+        app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+        app:layout_constraintEnd_toEndOf="@id/ivAvatar" />
+
+    <TextView
+        android:id="@+id/tvNickName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:ellipsize="end"
+        android:maxWidth="200dp"
+        android:maxLines="1"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/ivAvatar"
+        app:layout_constraintTop_toTopOf="@id/ivAvatar"
+        tools:text="一只小青蛙呀" />
+
+    <TextView
+        android:id="@+id/tvAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:ellipsize="end"
+        android:maxWidth="40dp"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@id/tvNickName"
+        app:layout_constraintTop_toTopOf="@id/tvNickName"
+        tools:text="26" />
+
+    <TextView
+        android:id="@+id/tvDesc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+        app:layout_constraintEnd_toStartOf="@id/ivRightArrow"
+        app:layout_constraintStart_toStartOf="@id/tvNickName"
+        tools:text="你是一只小青蛙呀" />
+
+    <ImageView
+        android:id="@+id/ivRightArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_right_arrow"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tvDesc"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -54,52 +54,51 @@ class UploadBasicInfoActivity : BaseUIActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnDone -> done()
-            R.id.ivLayerMask -> selectWay()
+            R.id.ivLayerMask -> selectGetPhotoWay()
         }
     }
 
-    private fun selectWay() {
-        com.johnny.base.utils.showDialog(
-            this,
-            R.layout.dialog_select_photo_or_take_photo,
-            false,
-            Gravity.BOTTOM,
-            R.style.BottomInBottomOutAnimationDialogTheme
-        ) {
-            // 取消
-            tvCancel.setOnClickListener {
-                dismiss()
-            }
-            // 拍照
-            tvTakePhoto.setOnClickListener {
-                dismiss()
-                // TODO:权限请求流程需要完善，这块还要加上权限引导，统一封装
-                PermissionUtils.permissions(CAMERA, STORAGE)
-                    .resultCallback(object : OnPermissionCallback {
-                        override fun onGrantedCallback(grantedPermissions: List<String>) {
-                            FileHelper.toCamera(this@UploadBasicInfoActivity)
-                        }
+    private fun selectGetPhotoWay() = showDialog(
+        this,
+        R.layout.dialog_select_photo_or_take_photo,
+        false,
+        Gravity.BOTTOM,
+        R.style.BottomInBottomOutAnimationDialogTheme
+    ) {
+        // 取消
+        tvCancel.setOnClickListener {
+            dismiss()
+        }
+        // 拍照
+        tvTakePhoto.setOnClickListener {
+            dismiss()
+            // TODO:权限请求流程需要完善，这块还要加上权限引导，统一封装
+            PermissionUtils.permissions(CAMERA, STORAGE)
+                .resultCallback(object : OnPermissionCallback {
+                    override fun onGrantedCallback(grantedPermissions: List<String>) {
+                        FileHelper.toCamera(this@UploadBasicInfoActivity)
+                    }
 
-                        override fun onDeniedCallback(
-                            grantedPermissions: List<String>,
-                            deniedPermissions: List<String>,
-                            foreverDeniedPermissions: List<String>
-                        ) {
-                        }
-                    }).request()
-            }
-            // 相册
-            tvSelectFromAlbum.setOnClickListener {
-                dismiss()
-                FileHelper.toAlbum(this@UploadBasicInfoActivity)
-            }
+                    override fun onDeniedCallback(
+                        grantedPermissions: List<String>,
+                        deniedPermissions: List<String>,
+                        foreverDeniedPermissions: List<String>
+                    ) {
+                    }
+                }).request()
+        }
+        // 相册
+        tvSelectFromAlbum.setOnClickListener {
+            dismiss()
+            FileHelper.toAlbum(this@UploadBasicInfoActivity)
         }
     }
 
     private fun done() {
         val nickName = etNickName.text.toString().trim()
         this.uploadPhotoFile?.let {
-            val dialog = showLoadingDialog(this, false, getString(R.string.text_uploading_personal_info))
+            val dialog =
+                showLoadingDialog(this, false, getString(R.string.text_uploading_personal_info))
             BmobManager.uploadPersonalInfo(nickName, it) { isDone ->
                 dialog.dismiss()
                 if (isDone) {

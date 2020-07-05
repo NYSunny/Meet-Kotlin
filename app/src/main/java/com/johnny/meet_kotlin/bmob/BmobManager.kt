@@ -1,14 +1,12 @@
 package com.johnny.meet_kotlin.bmob
 
 import cn.bmob.v3.Bmob
+import cn.bmob.v3.BmobQuery
 import cn.bmob.v3.BmobSMS
 import cn.bmob.v3.BmobUser
 import cn.bmob.v3.datatype.BmobFile
 import cn.bmob.v3.exception.BmobException
-import cn.bmob.v3.listener.LogInListener
-import cn.bmob.v3.listener.QueryListener
-import cn.bmob.v3.listener.UpdateListener
-import cn.bmob.v3.listener.UploadFileListener
+import cn.bmob.v3.listener.*
 import com.johnny.base.utils.getApp
 import com.johnny.base.utils.shortToast
 import java.io.File
@@ -31,6 +29,37 @@ object BmobManager {
 
     fun isLogin(): Boolean = BmobUser.isLogin()
 
+    /**
+     * 根据电话号查询用户
+     */
+    fun queryUserByPhone(phone: String, listener: FindListener<IMUser>) {
+        queryWhereEqualTo("mobilePhoneNumber", phone, listener)
+    }
+
+    /**
+     * 查询所有用户
+     */
+    fun queryAllUser(listener: FindListener<IMUser>) {
+        val query = BmobQuery<IMUser>()
+        query.findObjects(listener)
+    }
+
+    /**
+     * 根据objectid查询用户
+     */
+    fun queryUserByObjectId(objectId: String, listener: FindListener<IMUser>) {
+        queryWhereEqualTo("objectId", objectId, listener)
+    }
+
+    private fun <T> queryWhereEqualTo(key: String, value: Any, listener: FindListener<T>) {
+        val query = BmobQuery<T>()
+        query.addWhereEqualTo(key, value)
+        query.findObjects(listener)
+    }
+
+    /**
+     * 上传个人头像和昵称
+     */
     fun uploadPersonalInfo(nickName: String, file: File, callback: (Boolean) -> Unit) {
         val bmobFile = BmobFile(file)
         bmobFile.uploadblock(object : UploadFileListener() {

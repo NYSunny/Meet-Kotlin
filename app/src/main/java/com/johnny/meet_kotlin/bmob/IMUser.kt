@@ -12,9 +12,9 @@ data class IMUser(
     /* 基本属性 */
     var nickName: String?,
     var photo: String?,
-    var sex: Boolean? = true,
+    var sex: Boolean = true,
     var desc: String?,
-    var age: Int?,
+    var age: Int = 0,
     var birthday: String?,
     var constellation: String?,
     var hobby: String?,

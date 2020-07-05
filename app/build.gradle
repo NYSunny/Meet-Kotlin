@@ -46,21 +46,14 @@ android {
         }
     }
 
+    // Bmob中需要使用HttpClient
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':base')
-    implementation rootProject.ext.deps["kotlin-stdlib-jdk7"]
-    implementation rootProject.ext.deps["androidx.appcompat"]
-    implementation rootProject.ext.deps["androidx.core-ktx"]
-    implementation rootProject.ext.deps["androidx.androidx.constraintlayout"]
-    testImplementation rootProject.ext.deps["junit"]
-    androidTestImplementation rootProject.ext.deps["androidx.test.ext"]
-    androidTestImplementation rootProject.ext.deps["androidx.test.espresso"]
 
     implementation rootProject.ext.deps["kotlin-reflect"]
-
-    implementation rootProject.ext.deps["FragmentTabHost"]
     implementation rootProject.ext.deps["3dtagcloud"]
 }

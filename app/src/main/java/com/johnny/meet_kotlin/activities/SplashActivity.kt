@@ -3,8 +3,8 @@ package com.johnny.meet_kotlin.activities
 import android.os.Bundle
 import android.os.Handler
 import com.johnny.base.BaseUIActivity
-import com.johnny.base.SP_KEY_IS_FIRST_START_APP
-import com.johnny.base.SP_KEY_TOKEN
+import com.johnny.meet_kotlin.SP_KEY_IS_FIRST_START_APP
+import com.johnny.meet_kotlin.SP_KEY_TOKEN
 import com.johnny.base.WeakRefHandler
 import com.johnny.base.utils.SpUtils
 import com.johnny.base.utils.startActivity

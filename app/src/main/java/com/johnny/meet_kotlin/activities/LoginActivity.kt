@@ -9,7 +9,7 @@ import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.LogInListener
 import cn.bmob.v3.listener.QueryListener
 import com.johnny.base.BaseUIActivity
-import com.johnny.base.SP_KEY_MOBILE_PHONE
+import com.johnny.meet_kotlin.SP_KEY_MOBILE_PHONE
 import com.johnny.base.WeakRefHandler
 import com.johnny.meet_kotlin.bmob.BmobManager
 import com.johnny.meet_kotlin.bmob.IMUser

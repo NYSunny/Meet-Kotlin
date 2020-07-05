@@ -1,3 +1,5 @@
+@file:JvmName("LogUtils")
+
 package com.johnny.base.utils
 
 import android.annotation.SuppressLint
@@ -19,6 +21,7 @@ import java.util.*
 @SuppressLint("SimpleDateFormat")
 private val TIME_FORMAT = SimpleDateFormat("yyyy:MM:dd HH:mm:ss")
 
+@JvmOverloads
 fun i(tag: String = BuildConfig.LOG_TAG, msg: String, isWrite: Boolean = false) {
     when {
         BuildConfig.LOG_DEBUG && msg.isNotBlank() -> {
@@ -30,6 +33,7 @@ fun i(tag: String = BuildConfig.LOG_TAG, msg: String, isWrite: Boolean = false) 
     }
 }
 
+@JvmOverloads
 fun e(tag: String = BuildConfig.LOG_TAG, msg: String, isWrite: Boolean = false) {
     when {
         BuildConfig.LOG_DEBUG && msg.isNotBlank() -> {

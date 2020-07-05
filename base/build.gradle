@@ -31,19 +31,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    // Bmob中需要使用HttpClient
-    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.deps["kotlin-stdlib-jdk7"]
-    implementation rootProject.ext.deps["androidx.appcompat"]
-    implementation rootProject.ext.deps["androidx.core-ktx"]
-    testImplementation rootProject.ext.deps["junit"]
-    androidTestImplementation rootProject.ext.deps["androidx.test.ext"]
-    androidTestImplementation rootProject.ext.deps["androidx.test.espresso"]
+    api rootProject.ext.deps["kotlin-stdlib-jdk7"]
+    api rootProject.ext.deps["androidx.appcompat"]
+    api rootProject.ext.deps["androidx.core-ktx"]
+    testApi rootProject.ext.deps["junit"]
+    androidTestApi rootProject.ext.deps["androidx.test.ext"]
+    androidTestApi rootProject.ext.deps["androidx.test.espresso"]
+
+    api rootProject.ext.deps["recyclerview"]
 
     api rootProject.ext.deps["bmobsdk"]
     api rootProject.ext.deps["rxjava2"]
@@ -56,4 +55,7 @@ dependencies {
 
     implementation rootProject.ext.deps["androidx.multidex"]
     api rootProject.ext.deps["circleimageview"]
+    api rootProject.ext.deps["androidx.androidx.constraintlayout"]
+    api rootProject.ext.deps["glide"]
+    api rootProject.ext.deps["FragmentTabHost"]
 }

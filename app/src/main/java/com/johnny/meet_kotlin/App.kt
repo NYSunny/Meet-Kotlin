@@ -1,8 +1,5 @@
 package com.johnny.meet_kotlin
 
-import android.content.Context
-import android.os.StrictMode
-import androidx.multidex.MultiDex
 import com.johnny.base.BaseApplication
 import com.johnny.meet_kotlin.bmob.BmobManager
 import com.library.networklib.kit.NetKit
@@ -12,11 +9,6 @@ import com.library.networklib.kit.NetKit
  */
 
 class App : BaseApplication() {
-
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-        MultiDex.install(this)
-    }
 
     override fun onCreate() {
         super.onCreate()
