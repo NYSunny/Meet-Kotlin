@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
 import com.johnny.base.BaseUIActivity
+import com.johnny.base.utils.hideSoftInput
 import com.johnny.base.utils.shortToast
 import com.johnny.base.utils.showLoadingDialog
 import com.johnny.base.views.rv.RVAdapter
@@ -89,6 +90,9 @@ class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
     }
 
     private fun doSearch() {
+        // 隐藏软键盘
+        hideSoftInput(this)
+
         // 1.获取电话号码
         val phone = etMobilePhone.text.toString().trim()
         if (phone.isBlank()) shortToast(R.string.text_please_input_mobile_phone)

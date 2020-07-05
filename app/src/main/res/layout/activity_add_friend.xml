@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:ignore="SpUsage">
+    tools:ignore="SpUsage,TextFields">
 
     <TextView
         android:id="@+id/tvToContact"
@@ -42,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
             android:layout_weight="1"
+            android:inputType="number"
             android:background="@drawable/shape_login_edit_bg"
             android:hint="@string/text_mobile_phone"
             android:padding="10dp" />

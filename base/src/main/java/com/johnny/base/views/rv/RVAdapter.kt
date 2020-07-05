@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.johnny.base.BaseApplication
+import com.johnny.base.utils.getApp
 
 /**
  * @author Johnny
@@ -18,7 +18,7 @@ class RVAdapter<D : RVData>(var datas: MutableList<D>?) : RecyclerView.Adapter<R
 
     private var mOnItemClickListener: OnItemClickListener<D>? = null
 
-    private val mInflater: LayoutInflater = BaseApplication.getApplication().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    private val mInflater: LayoutInflater = getApp().getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     fun setOnProvideLayoutIdListener(listener: OnProvideLayoutIdListener) {
         this.mOnProvideLayoutIdListener = listener
