@@ -69,6 +69,26 @@
             android:name=".activities.ContactFriendActivity"
             android:configChanges="keyboard|orientation|fontScale" />
 
+        <activity
+            android:name=".activities.UserInfoActivity"
+            android:configChanges="keyboard|orientation|fontScale" />
+
+        <activity
+            android:name=".activities.NewFriendActivity"
+            android:configChanges="keyboard|orientation|fontScale" />
+
+        <activity
+            android:name=".activities.PrivacySettingActivity"
+            android:configChanges="keyboard|orientation|fontScale" />
+
+        <activity
+            android:name=".activities.MeInfoActivity"
+            android:configChanges="keyboard|orientation|fontScale" />
+
+        <activity
+            android:name=".activities.SettingActivity"
+            android:configChanges="keyboard|orientation|fontScale" />
+
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="com.johnny.meet_kotlin.BmobContentProvider"
