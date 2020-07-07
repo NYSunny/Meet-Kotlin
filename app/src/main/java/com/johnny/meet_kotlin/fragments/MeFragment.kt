@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.johnny.base.helper.GlideHelper
+import com.johnny.base.utils.getApp
 import com.johnny.base.utils.startActivity
 import com.johnny.customfragmenttabhostlib.FragmentTabHostFragment
 import com.johnny.meet_kotlin.R
@@ -12,7 +14,9 @@ import com.johnny.meet_kotlin.activities.MeInfoActivity
 import com.johnny.meet_kotlin.activities.NewFriendActivity
 import com.johnny.meet_kotlin.activities.PrivacySettingActivity
 import com.johnny.meet_kotlin.activities.SettingActivity
-import kotlinx.android.synthetic.main.fragment_me.*
+import com.johnny.meet_kotlin.bmob.BmobManager
+import com.johnny.meet_kotlin.bmob.IMUser
+import kotlinx.android.synthetic.main.fragment_me.view.*
 
 /**
  * 我的
@@ -35,11 +39,21 @@ class MeFragment : FragmentTabHostFragment(), View.OnClickListener {
     }
 
     private fun setupView() {
-        llMeInfo.setOnClickListener(this)
-        llNewFriend.setOnClickListener(this)
-        llPrivacySetting.setOnClickListener(this)
-        llShare.setOnClickListener(this)
-        llSetting.setOnClickListener(this)
+        this.mView.llMeInfo.setOnClickListener(this)
+        this.mView.llNewFriend.setOnClickListener(this)
+        this.mView.llPrivacySetting.setOnClickListener(this)
+        this.mView.llShare.setOnClickListener(this)
+        this.mView.llSetting.setOnClickListener(this)
+
+        setupMeInfo()
+    }
+
+    private fun setupMeInfo() {
+        val currentUser: IMUser? = BmobManager.getCurrentUser()
+        currentUser?.let {
+            GlideHelper.loadUrl(getApp(), this.mView.ivAvatar, it.photo)
+            this.mView.tvNickName.text = it.nickName
+        }
     }
 
     override fun onClick(v: View?) {

@@ -35,7 +35,11 @@
                 android:id="@+id/tvNickName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:gravity="center"
+                android:maxLines="1"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:textColor="@android:color/black"
                 android:textSize="24dp"
                 app:layout_constraintBottom_toTopOf="@id/tvServerStatus"
@@ -47,7 +51,11 @@
                 android:id="@+id/tvServerStatus"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
                 android:gravity="center"
+                android:maxLines="1"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
                 android:paddingBottom="5dp"
                 android:textColor="@android:color/black"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -99,8 +107,7 @@
         <!--隐私设置-->
         <LinearLayout
             android:id="@+id/llPrivacySetting"
-            style="@style/style_me_item_container"
-            android:layout_marginTop="10dp">
+            style="@style/style_me_item_container">
 
             <ImageView
                 android:layout_width="wrap_content"
