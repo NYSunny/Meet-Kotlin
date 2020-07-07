@@ -258,10 +258,10 @@ class PermissionUtils private constructor(private val permissionParams: MutableL
         if (this.mOnPermissionCallback == null) return
         // 全部权限允许后回调
         if (this.permissionsDenied.isEmpty()) {
-            this.mOnPermissionCallback?.onGrantedCallback(this.permissionsGrant)
+            this.mOnPermissionCallback?.onPermissionGranted(this.permissionsGrant)
         } else {
             // 至少有一个权限被禁止回调
-            this.mOnPermissionCallback?.onDeniedCallback(
+            this.mOnPermissionCallback?.onPermissionDenied(
                 this.permissionsGrant,
                 this.permissionsDenied,
                 this.permissionsDeniedForever
@@ -331,9 +331,9 @@ interface OnRationaleCallback {
 
 interface OnPermissionCallback {
 
-    fun onGrantedCallback(grantedPermissions: List<String>)
+    fun onPermissionGranted(grantedPermissions: List<String>)
 
-    fun onDeniedCallback(
+    fun onPermissionDenied(
         grantedPermissions: List<String>,
         deniedPermissions: List<String>,
         foreverDeniedPermissions: List<String>

@@ -38,9 +38,9 @@ dependencies {
     api rootProject.ext.deps["kotlin-stdlib-jdk7"]
     api rootProject.ext.deps["androidx.appcompat"]
     api rootProject.ext.deps["androidx.core-ktx"]
-    testApi rootProject.ext.deps["junit"]
-    androidTestApi rootProject.ext.deps["androidx.test.ext"]
-    androidTestApi rootProject.ext.deps["androidx.test.espresso"]
+    testImplementation rootProject.ext.deps["junit"]
+    androidTestImplementation rootProject.ext.deps["androidx.test.ext"]
+    androidTestImplementation rootProject.ext.deps["androidx.test.espresso"]
 
     api rootProject.ext.deps["recyclerview"]
 

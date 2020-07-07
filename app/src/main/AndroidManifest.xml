@@ -65,6 +65,10 @@
             android:name=".activities.AddFriendActivity"
             android:configChanges="keyboard|orientation|fontScale" />
 
+        <activity
+            android:name=".activities.ContactFriendActivity"
+            android:configChanges="keyboard|orientation|fontScale" />
+
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
             android:authorities="com.johnny.meet_kotlin.BmobContentProvider"

@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.johnny.base.helper.GlideHelper
+import java.lang.NullPointerException
 
 /**
  * @author Johnny

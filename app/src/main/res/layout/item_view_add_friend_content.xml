@@ -38,8 +38,9 @@
         android:textColor="@color/colorPrimary"
         android:textSize="15dp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/llContactInfo"
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
-        app:layout_constraintTop_toTopOf="@id/ivAvatar"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="一只小青蛙呀" />
 
     <TextView
@@ -55,6 +56,36 @@
         app:layout_constraintTop_toTopOf="@id/tvNickName"
         tools:text="26" />
 
+    <LinearLayout
+        android:id="@+id/llContactInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/tvDesc"
+        app:layout_constraintEnd_toStartOf="@id/ivRightArrow"
+        app:layout_constraintStart_toStartOf="@id/tvNickName"
+        app:layout_constraintTop_toBottomOf="@id/tvNickName">
+
+
+        <TextView
+            android:id="@+id/tvContactName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            tools:text="name" />
+
+        <TextView
+            android:id="@+id/tvContactPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@android:color/black"
+            tools:text="1223245435" />
+    </LinearLayout>
+
     <TextView
         android:id="@+id/tvDesc"
         android:layout_width="0dp"
@@ -64,9 +95,10 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
         android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/ivRightArrow"
         app:layout_constraintStart_toStartOf="@id/tvNickName"
+        app:layout_constraintTop_toBottomOf="@id/llContactInfo"
         tools:text="你是一只小青蛙呀" />
 
     <ImageView

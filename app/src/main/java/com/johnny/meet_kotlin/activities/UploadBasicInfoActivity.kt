@@ -75,11 +75,11 @@ class UploadBasicInfoActivity : BaseUIActivity(), View.OnClickListener {
             // TODO:权限请求流程需要完善，这块还要加上权限引导，统一封装
             PermissionUtils.permissions(CAMERA, STORAGE)
                 .resultCallback(object : OnPermissionCallback {
-                    override fun onGrantedCallback(grantedPermissions: List<String>) {
+                    override fun onPermissionGranted(grantedPermissions: List<String>) {
                         FileHelper.toCamera(this@UploadBasicInfoActivity)
                     }
 
-                    override fun onDeniedCallback(
+                    override fun onPermissionDenied(
                         grantedPermissions: List<String>,
                         deniedPermissions: List<String>,
                         foreverDeniedPermissions: List<String>

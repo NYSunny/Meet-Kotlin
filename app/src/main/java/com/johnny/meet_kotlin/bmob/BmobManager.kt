@@ -7,6 +7,8 @@ import cn.bmob.v3.BmobUser
 import cn.bmob.v3.datatype.BmobFile
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.*
+import com.johnny.base.DO
+import com.johnny.base.doo
 import com.johnny.base.utils.getApp
 import com.johnny.base.utils.shortToast
 import java.io.File
@@ -67,7 +69,7 @@ object BmobManager {
                 e?.let {
                     callback(false)
                     shortToast(it.message ?: "Unknown")
-                } ?: Unit.apply {
+                } ?: DO.doo {
                     val currentUser = getCurrentUser()
                     currentUser?.let {
                         currentUser.nickName = nickName

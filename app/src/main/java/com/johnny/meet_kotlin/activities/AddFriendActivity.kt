@@ -8,9 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import cn.bmob.v3.exception.BmobException
 import cn.bmob.v3.listener.FindListener
 import com.johnny.base.BaseUIActivity
-import com.johnny.base.utils.hideSoftInput
-import com.johnny.base.utils.shortToast
-import com.johnny.base.utils.showLoadingDialog
+import com.johnny.base.utils.*
 import com.johnny.base.views.rv.RVAdapter
 import com.johnny.base.views.rv.RVViewHolder
 import com.johnny.meet_kotlin.R
@@ -20,6 +18,8 @@ import com.johnny.meet_kotlin.model.AddFriendModel
 import kotlinx.android.synthetic.main.activity_add_friend.*
 
 /**
+ * 添加朋友
+ *
  * @author Johnny
  */
 class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
@@ -32,6 +32,7 @@ class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
 
     private fun setupView() {
         ivSearch.setOnClickListener(this)
+        tvToContact.setOnClickListener(this)
 
         rv.layoutManager = LinearLayoutManager(this)
         rv.adapter = RVAdapter<AddFriendModel>(null).apply {
@@ -86,7 +87,24 @@ class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.ivSearch -> doSearch()
+            R.id.tvToContact -> toContactFriendActivity()
         }
+    }
+
+    private fun toContactFriendActivity() {
+        PermissionUtils.permissions(android.Manifest.permission.READ_CONTACTS)
+            .resultCallback(object : OnPermissionCallback {
+                override fun onPermissionGranted(grantedPermissions: List<String>) {
+                    startActivity<ContactFriendActivity>()
+                }
+
+                override fun onPermissionDenied(
+                    grantedPermissions: List<String>,
+                    deniedPermissions: List<String>,
+                    foreverDeniedPermissions: List<String>
+                ) {
+                }
+            }).request()
     }
 
     private fun doSearch() {

@@ -4,8 +4,6 @@ package com.johnny.base
  * @author Johnny
  */
 
-object DO {
-    const val a = 1
-}
+object DO
 
-inline fun <T, R> T.doo(block: T.() -> R): R = block()
+inline fun <R> DO.doo(block: () -> R): R = block()

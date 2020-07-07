@@ -13,13 +13,16 @@ data class AddFriendModel(
     var age: Int = 0,
     var desc: String? = null,
     var userId: String = "",
-    var viewType: Int = 0
+    var viewType: Int = 0,
+    var isContact: Boolean = false,
+    var contactName: String = "",
+    var contactPhone: String = ""
 ) : RVData() {
 
     companion object {
-        const val TITLE = 0
-        const val CONTENT = 1
-        const val NO_USER = 2
+        const val TITLE = 1
+        const val CONTENT = 2
+        const val NO_USER = 3
     }
 
     override fun getItemType(): Int = viewType
