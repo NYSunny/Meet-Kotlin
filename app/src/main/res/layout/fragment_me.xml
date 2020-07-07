@@ -1,16 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.johnny.base.views.HeadZoomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:ignore="SpUsage">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="FragmentMe"
-        android:textAllCaps="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="240dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/img_me_bg" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivAvatar"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNickName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="24dp"
+                app:layout_constraintBottom_toTopOf="@id/tvServerStatus"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="NickName" />
+
+            <TextView
+                android:id="@+id/tvServerStatus"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textColor="@android:color/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="404" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--个人信息-->
+        <LinearLayout
+            android:id="@+id/llMeInfo"
+            style="@style/style_me_item_container">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_user_info_icon" />
+
+            <TextView
+                style="@style/style_me_item_text"
+                android:text="@string/text_me_info" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_right_arrow" />
+        </LinearLayout>
+
+        <!--新朋友-->
+        <LinearLayout
+            android:id="@+id/llNewFriend"
+            style="@style/style_me_item_container">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_new_firend_icon" />
+
+            <TextView
+                style="@style/style_me_item_text"
+                android:text="@string/text_new_friend" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_right_arrow" />
+        </LinearLayout>
+
+        <!--隐私设置-->
+        <LinearLayout
+            android:id="@+id/llPrivacySetting"
+            style="@style/style_me_item_container"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_private_setting" />
+
+            <TextView
+                style="@style/style_me_item_text"
+                android:text="@string/text_privacy_setting" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_right_arrow" />
+        </LinearLayout>
+
+        <!--分享-->
+        <LinearLayout
+            android:id="@+id/llShare"
+            style="@style/style_me_item_container">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_share_icon" />
+
+            <TextView
+                style="@style/style_me_item_text"
+                android:text="@string/text_share" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_right_arrow" />
+        </LinearLayout>
+
+        <!--设置-->
+        <LinearLayout
+            android:id="@+id/llSetting"
+            style="@style/style_me_item_container">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_setting_icon" />
+
+            <TextView
+                style="@style/style_me_item_text"
+                android:text="@string/text_setting" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_right_arrow" />
+        </LinearLayout>
+    </LinearLayout>
+</com.johnny.base.views.HeadZoomScrollView>

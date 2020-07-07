@@ -50,4 +50,9 @@
     <string name="text_recommend_friend">推荐好友</string>
     <string name="text_searching">正在搜索...</string>
     <string name="text_importing">正在导入...</string>
+    <string name="text_me_info">个人信息</string>
+    <string name="text_new_friend">新朋友</string>
+    <string name="text_privacy_setting">隐私设置</string>
+    <string name="text_share">分享</string>
+    <string name="text_setting">设置</string>
 </resources>

@@ -13,6 +13,8 @@ fun main(args: Array<String>) {
         val b = 6
         println("a + b = ${a + b}")
     }
+
+    name as String
 }
 
 class Foo {
