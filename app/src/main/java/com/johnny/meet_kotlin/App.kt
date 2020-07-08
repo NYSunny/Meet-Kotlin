@@ -2,6 +2,7 @@ package com.johnny.meet_kotlin
 
 import com.johnny.base.BaseApplication
 import com.johnny.meet_kotlin.bmob.BmobManager
+import com.johnny.meet_kotlin.rongcloud.RongCloudManager
 import com.library.networklib.kit.NetKit
 
 /**
@@ -15,7 +16,10 @@ class App : BaseApplication() {
         // init Bmob
         BmobManager.init()
 
+        // init rong-cloud
+        RongCloudManager.init(this)
+
         // init network lib
-        NetKit.getInstance().init("http://www.baidu.com")
+        NetKit.getInstance().init("https://api-cn.ronghub.com")
     }
 }

@@ -12,7 +12,7 @@ import com.johnny.base.BaseUIActivity
 import com.johnny.meet_kotlin.SP_KEY_MOBILE_PHONE
 import com.johnny.base.WeakRefHandler
 import com.johnny.meet_kotlin.bmob.BmobManager
-import com.johnny.meet_kotlin.bmob.IMUser
+import com.johnny.meet_kotlin.bmob.User
 import com.johnny.base.utils.*
 import com.johnny.meet_kotlin.MainActivity
 import com.johnny.meet_kotlin.R
@@ -114,8 +114,8 @@ class LoginActivity : BaseUIActivity(), View.OnClickListener {
         } else if (!this.loginDialog.isShowing) {
             this.loginDialog.show()
         }
-        BmobManager.signOrLoginByMobilePhone(phone, smsCode, object : LogInListener<IMUser>() {
-            override fun done(user: IMUser?, e: BmobException?) {
+        BmobManager.signOrLoginByMobilePhone(phone, smsCode, object : LogInListener<User>() {
+            override fun done(user: User?, e: BmobException?) {
                 this@LoginActivity.loginDialog.dismiss()
                 if (e == null) {
                     // 保存登录成功的手机号

@@ -15,7 +15,7 @@ import com.johnny.base.views.rv.RVAdapter
 import com.johnny.base.views.rv.RVViewHolder
 import com.johnny.meet_kotlin.R
 import com.johnny.meet_kotlin.bmob.BmobManager
-import com.johnny.meet_kotlin.bmob.IMUser
+import com.johnny.meet_kotlin.bmob.User
 import com.johnny.meet_kotlin.model.AddFriendModel
 import kotlinx.android.synthetic.main.activity_contact_friend.*
 
@@ -84,8 +84,8 @@ class ContactFriendActivity : BaseUIActivity() {
         var N = 0
         for ((name, phone) in localContacts) {
             // 根据通讯录中的手机号去后台查询相关用户显示
-            BmobManager.queryUserByPhone(phone, object : FindListener<IMUser>() {
-                override fun done(users: MutableList<IMUser>?, e: BmobException?) {
+            BmobManager.queryUserByPhone(phone, object : FindListener<User>() {
+                override fun done(users: MutableList<User>?, e: BmobException?) {
                     // 这里是主线程
                     N++
                     if (N == localContacts.size) {
@@ -109,7 +109,7 @@ class ContactFriendActivity : BaseUIActivity() {
         }
     }
 
-    private fun notifyDataChange(user: IMUser, contactName: String, contactPhone: String) {
+    private fun notifyDataChange(user: User, contactName: String, contactPhone: String) {
         val model = AddFriendModel()
         model.age = user.age
         model.avatarUrl = user.photo

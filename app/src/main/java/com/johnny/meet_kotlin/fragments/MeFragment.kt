@@ -15,7 +15,7 @@ import com.johnny.meet_kotlin.activities.NewFriendActivity
 import com.johnny.meet_kotlin.activities.PrivacySettingActivity
 import com.johnny.meet_kotlin.activities.SettingActivity
 import com.johnny.meet_kotlin.bmob.BmobManager
-import com.johnny.meet_kotlin.bmob.IMUser
+import com.johnny.meet_kotlin.bmob.User
 import kotlinx.android.synthetic.main.fragment_me.view.*
 
 /**
@@ -49,7 +49,7 @@ class MeFragment : FragmentTabHostFragment(), View.OnClickListener {
     }
 
     private fun setupMeInfo() {
-        val currentUser: IMUser? = BmobManager.getCurrentUser()
+        val currentUser: User? = BmobManager.getCurrentUser()
         currentUser?.let {
             GlideHelper.loadUrl(getApp(), this.mView.ivAvatar, it.photo)
             this.mView.tvNickName.text = it.nickName

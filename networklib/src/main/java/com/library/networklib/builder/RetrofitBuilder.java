@@ -1,11 +1,5 @@
 package com.library.networklib.builder;
 
-import com.library.networklib.auth.SSLHelper;
-import com.library.networklib.log.HttpLogger;
-import com.library.networklib.log.HttpLoggingInterceptor;
-
-import java.util.concurrent.TimeUnit;
-
 import okhttp3.OkHttpClient;
 import retrofit2.CallAdapter;
 import retrofit2.Converter;
@@ -18,7 +12,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RetrofitBuilder {
 
-    private static final int TIME_OUT = 10;
     private String baseUrl;
     private CallAdapter.Factory[] callAdapterFactories;
     private Converter.Factory[] converterFactories;
@@ -70,20 +63,6 @@ public class RetrofitBuilder {
     }
 
     private OkHttpClient createDefaultOkHttpClient() {
-        final OkHttpClient.Builder builder = new OkHttpClient.Builder();
-        // 超时设置
-        builder.readTimeout(TIME_OUT, TimeUnit.SECONDS);
-        builder.writeTimeout(TIME_OUT, TimeUnit.SECONDS);
-        builder.connectTimeout(TIME_OUT, TimeUnit.SECONDS);
-        // 默认不安全的ssl
-        final SSLHelper.SSLParams sslParams = SSLHelper.getSSLParams();
-        builder.sslSocketFactory(sslParams.sslSocketFactory, sslParams.x509TrustManager);
-        // 网络日志
-        final HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor(new HttpLogger());
-        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
-        builder.addInterceptor(httpLoggingInterceptor);
-
-        return builder.build();
+        return new OkHttpClientBuilder().build();
     }
-
 }

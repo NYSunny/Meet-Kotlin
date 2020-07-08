@@ -5,7 +5,7 @@ import cn.bmob.v3.BmobUser
 /**
  * @author Johnny
  */
-data class IMUser(
+data class User(
     /* Token属性 */
     var tokenPhoto: String?,
     var tokenNickName: String?,

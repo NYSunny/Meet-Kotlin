@@ -14,7 +14,7 @@ fun main(args: Array<String>) {
         println("a + b = ${a + b}")
     }
 
-    name as String
+    name as? String
 }
 
 class Foo {

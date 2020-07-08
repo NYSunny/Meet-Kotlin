@@ -27,29 +27,29 @@ object BmobManager {
         )
     }
 
-    fun getCurrentUser(): IMUser? = BmobUser.getCurrentUser(IMUser::class.java)
+    fun getCurrentUser(): User? = BmobUser.getCurrentUser(User::class.java)
 
     fun isLogin(): Boolean = BmobUser.isLogin()
 
     /**
      * 根据电话号查询用户
      */
-    fun queryUserByPhone(phone: String, listener: FindListener<IMUser>) {
+    fun queryUserByPhone(phone: String, listener: FindListener<User>) {
         queryWhereEqualTo("mobilePhoneNumber", phone, listener)
     }
 
     /**
      * 查询所有用户
      */
-    fun queryAllUser(listener: FindListener<IMUser>) {
-        val query = BmobQuery<IMUser>()
+    fun queryAllUser(listener: FindListener<User>) {
+        val query = BmobQuery<User>()
         query.findObjects(listener)
     }
 
     /**
      * 根据objectid查询用户
      */
-    fun queryUserByObjectId(objectId: String, listener: FindListener<IMUser>) {
+    fun queryUserByObjectId(objectId: String, listener: FindListener<User>) {
         queryWhereEqualTo("objectId", objectId, listener)
     }
 
@@ -102,7 +102,7 @@ object BmobManager {
     /**
      * 一键注册或登录
      */
-    fun signOrLoginByMobilePhone(phone: String, smsCode: String, listener: LogInListener<IMUser>) {
+    fun signOrLoginByMobilePhone(phone: String, smsCode: String, listener: LogInListener<User>) {
         BmobUser.signOrLoginByMobilePhone(phone, smsCode, listener)
     }
 }

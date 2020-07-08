@@ -10,6 +10,7 @@ import android.os.IBinder
 class CloudService : Service() {
 
     override fun onBind(intent: Intent?): IBinder? {
+
         return null
     }
 }

@@ -7,15 +7,15 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import com.johnny.base.BaseUIActivity
 import com.johnny.base.utils.SpUtils
-import com.johnny.base.utils.i
 import com.johnny.base.utils.startActivity
 import com.johnny.meet_kotlin.activities.UploadBasicInfoActivity
 import com.johnny.meet_kotlin.bmob.BmobManager
-import com.johnny.meet_kotlin.bmob.IMUser
+import com.johnny.meet_kotlin.bmob.User
 import com.johnny.meet_kotlin.fragments.ChatFragment
 import com.johnny.meet_kotlin.fragments.MeFragment
 import com.johnny.meet_kotlin.fragments.PlazaFragment
 import com.johnny.meet_kotlin.fragments.StarFragment
+import com.johnny.meet_kotlin.rongcloud.RongCloudManager
 import com.johnny.meet_kotlin.services.CloudService
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_first_hint.*
@@ -71,10 +71,9 @@ class MainActivity : BaseUIActivity() {
     private fun checkToken() {
         val token = SpUtils.getString(SP_KEY_TOKEN, "")
         if (!token.isBlank()) {
-            // 启动云服务去连接融云服务
-            startService(Intent(this, CloudService::class.java))
+            startRongCloudService()
         } else {
-            val currentUser: IMUser? = BmobManager.getCurrentUser()
+            val currentUser: User? = BmobManager.getCurrentUser()
             val tokenPhoto = currentUser?.tokenPhoto
             val tokenNickName = currentUser?.tokenNickName
             if (tokenPhoto.isNullOrBlank() || tokenNickName.isNullOrBlank()) {
@@ -102,7 +101,28 @@ class MainActivity : BaseUIActivity() {
     }
 
     private fun createToken() {
-        i(msg = "createToken")
+        val formMap = mutableMapOf<String, String>()
+        BmobManager.getCurrentUser()?.let {
+            formMap["userId"] = it.objectId
+            formMap["name"] = it.tokenNickName ?: ""
+            formMap["portraitUri"] = it.tokenPhoto ?: ""
+
+            // 获取融云token
+            RongCloudManager.getToken(this, formMap) { token, throwable ->
+                if (token != null) {
+                    SpUtils.saveString(SP_KEY_TOKEN, token.token)
+                    startRongCloudService()
+                }
+            }
+        }
+    }
+
+    /**
+     * 启动本地融云服务
+     */
+    private fun startRongCloudService() {
+        // 启动云服务去连接融云服务
+        startService(Intent(this, CloudService::class.java))
     }
 
     /**

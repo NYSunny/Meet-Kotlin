@@ -13,7 +13,7 @@ import com.johnny.base.views.rv.RVAdapter
 import com.johnny.base.views.rv.RVViewHolder
 import com.johnny.meet_kotlin.R
 import com.johnny.meet_kotlin.bmob.BmobManager
-import com.johnny.meet_kotlin.bmob.IMUser
+import com.johnny.meet_kotlin.bmob.User
 import com.johnny.meet_kotlin.model.AddFriendModel
 import kotlinx.android.synthetic.main.activity_add_friend.*
 
@@ -121,9 +121,9 @@ class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
 
         // 3.查询用户
         val dialog = showLoadingDialog(this, false, getString(R.string.text_searching))
-        BmobManager.queryUserByPhone(phone, object : FindListener<IMUser>() {
+        BmobManager.queryUserByPhone(phone, object : FindListener<User>() {
             @Suppress("UNCHECKED_CAST")
-            override fun done(datas: MutableList<IMUser>?, e: BmobException?) {
+            override fun done(datas: MutableList<User>?, e: BmobException?) {
 
                 fun hideRvShowEmptyErrorView() {
                     rv.visibility = View.GONE
@@ -146,8 +146,8 @@ class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
                     models.add(provideNoDataModel())
 
                     // 显示推荐列表
-                    BmobManager.queryAllUser(object : FindListener<IMUser>() {
-                        override fun done(users: MutableList<IMUser>?, e: BmobException?) {
+                    BmobManager.queryAllUser(object : FindListener<User>() {
+                        override fun done(users: MutableList<User>?, e: BmobException?) {
                             dialog.dismiss()
                             if (!users.isNullOrEmpty()) {
                                 models.add(provideTitleModel(getString(R.string.text_recommend_friend)))
@@ -177,8 +177,8 @@ class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
                     models.add(provideContentModel(data))
                 }
                 // 显示推荐列表
-                BmobManager.queryAllUser(object : FindListener<IMUser>() {
-                    override fun done(users: MutableList<IMUser>?, e: BmobException?) {
+                BmobManager.queryAllUser(object : FindListener<User>() {
+                    override fun done(users: MutableList<User>?, e: BmobException?) {
                         dialog.dismiss()
                         if (!users.isNullOrEmpty()) {
                             models.add(provideTitleModel(getString(R.string.text_recommend_friend)))
@@ -207,7 +207,7 @@ class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
     private fun provideTitleModel(title: String): AddFriendModel =
         AddFriendModel(title, viewType = AddFriendModel.TITLE)
 
-    private fun provideContentModel(user: IMUser): AddFriendModel = AddFriendModel().apply {
+    private fun provideContentModel(user: User): AddFriendModel = AddFriendModel().apply {
         user.nickName?.let { nickName = it }
         avatarUrl = user.photo
         sex = user.sex
