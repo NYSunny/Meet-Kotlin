@@ -23,6 +23,8 @@
         android:id="@+id/ivSex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
         android:src="@drawable/img_boy_icon"
         app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
         app:layout_constraintEnd_toEndOf="@id/ivAvatar" />
@@ -36,7 +38,7 @@
         android:maxWidth="200dp"
         android:maxLines="1"
         android:textColor="@color/colorPrimary"
-        android:textSize="15dp"
+        android:textSize="16dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@id/llContactInfo"
         app:layout_constraintStart_toEndOf="@id/ivAvatar"
@@ -52,6 +54,8 @@
         android:maxWidth="40dp"
         android:maxLines="1"
         android:textColor="@android:color/black"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/tvNickName"
         app:layout_constraintStart_toEndOf="@id/tvNickName"
         app:layout_constraintTop_toTopOf="@id/tvNickName"
         tools:text="26" />
@@ -75,6 +79,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
+            android:textSize="16dp"
             tools:text="name" />
 
         <TextView
@@ -83,6 +88,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:textColor="@android:color/black"
+            android:textSize="16dp"
             tools:text="1223245435" />
     </LinearLayout>
 
@@ -95,6 +101,7 @@
         android:marqueeRepeatLimit="marquee_forever"
         android:singleLine="true"
         android:textColor="@android:color/black"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/ivRightArrow"
         app:layout_constraintStart_toStartOf="@id/tvNickName"

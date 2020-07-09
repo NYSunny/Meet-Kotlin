@@ -16,25 +16,28 @@ object HttpWrapper {
     @DefaultDomain
     const val baseUrl = "https://api-cn.ronghub.com"
 
-    fun get(url: String, vararg formatArgs: Any): RxHttpNoBodyParam {
-        val timeStamp = System.currentTimeMillis().toString()
-        val nonce = floor(Math.random() * 100000).toString()
-        val signature = sha1(RongCloudManager.APP_SECRET + nonce + timeStamp)
-        return RxHttp.get(url, formatArgs)
-            .addHeader("Timestamp", timeStamp)
-            .addHeader("App-Key", RongCloudManager.APP_KEY)
-            .addHeader("Nonce", nonce)
-            .addHeader("Signature", signature)
-    }
-
-    fun postForm(url: String, vararg formatArgs: Any): RxHttpFormParam {
+    private fun <T> setup(block: (timeStamp: String, nonce: String, signature: String) -> T): T {
         val timeStamp = System.currentTimeMillis().toString()
         val nonce = floor(Math.random() * 100000).toInt().toString()
         val signature = sha1(RongCloudManager.APP_SECRET + nonce + timeStamp)
-        return RxHttp.postForm(url, formatArgs)
-            .addHeader("Timestamp", timeStamp)
+        return block(timeStamp, nonce, signature)
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun <T : RxHttp<*, *>> setupCommonHeaders(http: T): T {
+        val timeStamp = System.currentTimeMillis().toString()
+        val nonce = floor(Math.random() * 100000).toInt().toString()
+        val signature = sha1(RongCloudManager.APP_SECRET + nonce + timeStamp)
+
+        return http.addHeader("Timestamp", timeStamp)
             .addHeader("App-Key", RongCloudManager.APP_KEY)
             .addHeader("Nonce", nonce)
-            .addHeader("Signature", signature)
+            .addHeader("Signature", signature) as T
     }
+
+    fun get(url: String, vararg formatArgs: Any): RxHttpNoBodyParam =
+        setupCommonHeaders(RxHttp.get(url, formatArgs))
+
+    fun postForm(url: String, vararg formatArgs: Any): RxHttpFormParam =
+        setupCommonHeaders(RxHttp.postForm(url, formatArgs))
 }

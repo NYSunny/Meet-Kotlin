@@ -7,6 +7,7 @@ import com.johnny.meet_kotlin.SP_KEY_IS_FIRST_START_APP
 import com.johnny.meet_kotlin.SP_KEY_TOKEN
 import com.johnny.base.WeakRefHandler
 import com.johnny.base.utils.SpUtils
+import com.johnny.base.utils.setLightStatusBarIcon
 import com.johnny.base.utils.startActivity
 import com.johnny.meet_kotlin.MainActivity
 import com.johnny.meet_kotlin.R

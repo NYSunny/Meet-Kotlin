@@ -2,7 +2,6 @@ package com.johnny.meet_kotlin.rongcloud
 
 import android.content.Context
 import androidx.lifecycle.LifecycleOwner
-import com.johnny.base.utils.i
 import com.johnny.meet_kotlin.rongcloud.bean.Token
 import com.johnny.meet_kotlin.rongcloud.rxhttp.HttpWrapper
 import com.rxjava.rxlife.lifeOnMain

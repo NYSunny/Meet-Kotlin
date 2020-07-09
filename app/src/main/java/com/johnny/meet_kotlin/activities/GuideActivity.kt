@@ -10,6 +10,7 @@ import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.johnny.base.BaseUIActivity
 import com.johnny.base.manager.MediaPlayerManager
+import com.johnny.base.utils.setLightStatusBarIcon
 import com.johnny.meet_kotlin.R
 import com.johnny.meet_kotlin.view.GuideView
 import kotlinx.android.synthetic.main.activity_guide.*
@@ -30,8 +31,11 @@ class GuideActivity : BaseUIActivity() {
     private val mediaPlayerManager: MediaPlayerManager = MediaPlayerManager()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        fixSystemUIEnabled = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guide)
+
+        setLightStatusBarIcon(this, true)
 
         init()
     }

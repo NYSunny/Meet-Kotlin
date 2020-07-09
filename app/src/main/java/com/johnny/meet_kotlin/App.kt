@@ -4,6 +4,7 @@ import com.johnny.base.BaseApplication
 import com.johnny.meet_kotlin.bmob.BmobManager
 import com.johnny.meet_kotlin.rongcloud.RongCloudManager
 import com.library.networklib.kit.NetKit
+import rxhttp.RxHttp
 
 /**
  * @author Johnny
@@ -11,8 +12,7 @@ import com.library.networklib.kit.NetKit
 
 class App : BaseApplication() {
 
-    override fun onCreate() {
-        super.onCreate()
+    override fun onMainProcessInit() {
         // init Bmob
         BmobManager.init()
 
@@ -21,5 +21,7 @@ class App : BaseApplication() {
 
         // init network lib
         NetKit.getInstance().init("https://api-cn.ronghub.com")
+
+        RxHttp.setDebug(true)
     }
 }

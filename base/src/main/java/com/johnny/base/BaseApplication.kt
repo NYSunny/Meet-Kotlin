@@ -1,13 +1,15 @@
 package com.johnny.base
 
+import android.app.ActivityManager
 import android.app.Application
 import android.content.Context
+import android.os.Process
 import androidx.multidex.MultiDex
 
 /**
  * @author Johnny
  */
-open class BaseApplication : Application() {
+abstract class BaseApplication : Application() {
 
     companion object {
         private lateinit var mAppApplication: Application
@@ -23,6 +25,21 @@ open class BaseApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         mAppApplication = this
+
+        initInMainProcess()
     }
 
+    abstract fun onMainProcessInit()
+
+    private fun initInMainProcess() {
+        val pid = Process.myPid()
+        val am: ActivityManager = getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
+        var currentProcessName: String? = null
+        for (runningAppProcessInfo in am.runningAppProcesses) {
+            if (pid == runningAppProcessInfo.pid) currentProcessName =
+                runningAppProcessInfo.processName
+        }
+
+        if (applicationInfo.packageName == currentProcessName) onMainProcessInit()
+    }
 }

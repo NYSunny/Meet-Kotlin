@@ -61,6 +61,7 @@ class LoginActivity : BaseUIActivity(), View.OnClickListener {
         fixSystemUIEnabled = true
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+        setLightStatusBarIcon(this, true)
         init()
         initClickEvent()
     }

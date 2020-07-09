@@ -15,11 +15,13 @@
     </style>-->
     <style name="NoActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar" />
 
+    <style name="SplashTheme" parent="FullScreenTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
     <!--全屏主题-->
     <style name="FullScreenTheme" parent="NoActionBarTheme">
         <item name="android:windowFullscreen">true</item>
-        <!--解决启动页白屏-->
-        <!--        <item name="android:windowBackground">@android:color/transparent</item>-->
     </style>
 
     <style name="LoginEditTextStyle">
@@ -29,7 +31,7 @@
         <item name="android:padding">10dp</item>
         <item name="android:textColor">@color/colorPrimary</item>
         <item name="android:textCursorDrawable">@drawable/shape_cursor</item>
-        <item name="android:textSize">15dp</item>
+        <item name="android:textSize" tools:ignore="SpUsage">15dp</item>
         <item name="android:inputType">number</item>
     </style>
 

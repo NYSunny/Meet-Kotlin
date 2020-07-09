@@ -33,7 +33,7 @@
         <activity
             android:name=".activities.SplashActivity"
             android:configChanges="keyboard|orientation|fontScale"
-            android:theme="@style/FullScreenTheme">
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,12 +44,12 @@
         <activity
             android:name=".activities.GuideActivity"
             android:configChanges="keyboard|orientation|fontScale"
-            android:theme="@style/FullScreenTheme" />
+            android:theme="@style/NoActionBarTheme" />
 
         <activity
             android:name=".activities.LoginActivity"
             android:configChanges="keyboard|orientation|fontScale"
-            android:theme="@style/FullScreenTheme" />
+            android:theme="@style/NoActionBarTheme" />
 
         <activity
             android:name=".MainActivity"
