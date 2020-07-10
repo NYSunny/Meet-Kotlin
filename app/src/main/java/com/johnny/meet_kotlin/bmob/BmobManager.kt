@@ -105,4 +105,18 @@ object BmobManager {
     fun signOrLoginByMobilePhone(phone: String, smsCode: String, listener: LogInListener<User>) {
         BmobUser.signOrLoginByMobilePhone(phone, smsCode, listener)
     }
+
+    /**
+     * 账号密码登录
+     */
+    fun loginByAccount(account: String, password: String, listener: LogInListener<User>) {
+        BmobUser.loginByAccount(account, password, listener)
+    }
+
+    /**
+     * 退出登录
+     */
+    fun logout() {
+        BmobUser.logOut()
+    }
 }

@@ -36,6 +36,7 @@ ext {
             "3dtagcloud"                        : 'com.moxun:tagcloudlib:1.2.0',
             "circleimageview"                   : "de.hdodenhof:circleimageview:3.1.0",
             "glide"                             : 'com.github.bumptech.glide:glide:4.11.0',
+            "eventbus"                          : 'org.greenrobot:eventbus:3.2.0',
             "androidx.multidex"                 : 'androidx.multidex:multidex:2.0.1'
     ]
     maven = [

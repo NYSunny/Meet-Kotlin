@@ -16,7 +16,7 @@ import com.johnny.meet_kotlin.fragments.MeFragment
 import com.johnny.meet_kotlin.fragments.PlazaFragment
 import com.johnny.meet_kotlin.fragments.StarFragment
 import com.johnny.meet_kotlin.rongcloud.RongCloudManager
-import com.johnny.meet_kotlin.services.CloudService
+import com.johnny.meet_kotlin.rongcloud.CloudService
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.dialog_first_hint.*
 import kotlinx.android.synthetic.main.view_bottom_tab.view.*

@@ -16,56 +16,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etMobilePhone"
-        style="@style/LoginEditTextStyle"
-        android:layout_margin="30dp"
-        android:hint="@string/text_mobile_phone"
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivLoginBg" />
-
-    <EditText
-        android:id="@+id/etAuthCode"
-        style="@style/LoginEditTextStyle"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
-        android:hint="@string/text_auth_code"
-        app:layout_constraintEnd_toStartOf="@id/btnSendAuthCode"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintHorizontal_weight="3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etMobilePhone" />
-
-    <Button
-        android:id="@+id/btnSendAuthCode"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/selector_login_btn_bg"
-        android:text="@string/text_send"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="@id/etAuthCode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@id/etAuthCode"
-        app:layout_constraintTop_toTopOf="@id/etAuthCode" />
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="30dp"
-        android:background="@drawable/selector_login_btn_bg"
-        android:text="@string/text_login"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etAuthCode" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,4 +55,12 @@
     <string name="text_privacy_setting">隐私设置</string>
     <string name="text_share">分享</string>
     <string name="text_setting">设置</string>
+    <string name="text_use_account_password_login">使用账号密码登录</string>
+    <string name="text_password">密码</string>
+    <string name="text_use_sms_login">使用验证码登录</string>
+    <string name="text_account">账号</string>
+    <string name="text_account_is_not_null">账号不能为空</string>
+    <string name="text_password_is_not_null">密码不能为空</string>
+    <string name="text_log_out">退出登录</string>
+    <string name="text_exiting">正在退出...</string>
 </resources>
