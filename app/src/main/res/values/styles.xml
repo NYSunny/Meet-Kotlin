@@ -17,6 +17,8 @@
 
     <style name="SplashTheme" parent="FullScreenTheme">
         <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+<!--        <item name="android:windowDisablePreview">true</item>-->
     </style>
 
     <!--全屏主题-->
