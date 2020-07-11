@@ -14,3 +14,5 @@ const val SP_KEY_TOKEN = "TOKEN"
 const val SP_KEY_MOBILE_PHONE = "MOBILE_PHONE"
 
 const val SP_KEY_ACCOUNT = "ACCOUNT"
+
+const val INTENT_KEY_USER_ID = "USER_ID"

@@ -6,4 +6,5 @@
 
     <color name="gray_100">#dddddd</color>
     <color name="color_star_bg">#12121F</color>
+    <color name="color_read">#FF4500</color>
 </resources>

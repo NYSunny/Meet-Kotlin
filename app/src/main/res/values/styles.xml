@@ -24,7 +24,7 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
-    <style name="LoginEditTextStyle">
+    <style name="style_common_edit_text">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/shape_login_edit_bg</item>
@@ -62,6 +62,20 @@
         <item name="android:gravity">start</item>
         <item name="android:layout_marginStart">10dp</item>
         <item name="android:layout_marginEnd">10dp</item>
+    </style>
+
+    <style name="style_user_info_btn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize" tools:ignore="SpUsage">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_btn_bg_corners5dp_solid_color_accent</item>
+        <item name="layout_constraintStart_toStartOf">parent</item>
+        <item name="layout_constraintEnd_toEndOf">parent</item>
+        <item name="android:layout_marginStart">15dp</item>
+        <item name="android:layout_marginEnd">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
 
 </resources>

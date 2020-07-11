@@ -11,8 +11,10 @@ import cn.bmob.v3.listener.FindListener
 import com.johnny.base.BaseUIActivity
 import com.johnny.base.helper.GlideHelper
 import com.johnny.base.utils.showLoadingDialog
+import com.johnny.base.utils.startActivity
 import com.johnny.base.views.rv.RVAdapter
 import com.johnny.base.views.rv.RVViewHolder
+import com.johnny.meet_kotlin.INTENT_KEY_USER_ID
 import com.johnny.meet_kotlin.R
 import com.johnny.meet_kotlin.bmob.BmobManager
 import com.johnny.meet_kotlin.bmob.User
@@ -64,7 +66,7 @@ class ContactFriendActivity : BaseUIActivity() {
             })
             setOnItemClickListener(object : RVAdapter.OnItemClickListener<AddFriendModel> {
                 override fun onItemClick(data: AddFriendModel) {
-
+                    UserInfoActivity.start(this@ContactFriendActivity, data.userId)
                 }
             })
         }

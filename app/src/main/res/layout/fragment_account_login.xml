@@ -11,7 +11,7 @@
 
     <EditText
         android:id="@+id/etAccount"
-        style="@style/LoginEditTextStyle"
+        style="@style/style_common_edit_text"
         android:inputType="text"
         android:hint="@string/text_account"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,7 +20,7 @@
 
     <EditText
         android:id="@+id/etPassword"
-        style="@style/LoginEditTextStyle"
+        style="@style/style_common_edit_text"
         android:layout_marginTop="15dp"
         android:hint="@string/text_password"
         android:inputType="textPassword"

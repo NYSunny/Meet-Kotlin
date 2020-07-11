@@ -91,7 +91,7 @@
 
         <provider
             android:name="cn.bmob.v3.util.BmobContentProvider"
-            android:authorities="com.johnny.meet_kotlin.BmobContentProvider"
+            android:authorities="${applicationId}.BmobContentProvider"
             android:exported="false" />
 
         <provider
@@ -108,6 +108,8 @@
         <service
             android:name=".rongcloud.CloudService"
             android:exported="false" />
+
+        <activity android:name=".test.TestActivity" />
     </application>
 
 </manifest>

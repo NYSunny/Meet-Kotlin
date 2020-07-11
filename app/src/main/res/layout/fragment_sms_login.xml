@@ -8,7 +8,7 @@
 
     <EditText
         android:id="@+id/etMobilePhone"
-        style="@style/LoginEditTextStyle"
+        style="@style/style_common_edit_text"
         android:layout_margin="30dp"
         android:hint="@string/text_mobile_phone"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,7 +17,7 @@
 
     <EditText
         android:id="@+id/etAuthCode"
-        style="@style/LoginEditTextStyle"
+        style="@style/style_common_edit_text"
         android:layout_marginStart="30dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"

@@ -63,4 +63,19 @@
     <string name="text_password_is_not_null">密码不能为空</string>
     <string name="text_log_out">退出登录</string>
     <string name="text_exiting">正在退出...</string>
+    <string name="text_sending_auth_code">正在发送验证码...</string>
+    <string name="text_loading">正在加载...</string>
+    <string name="text_add_friend">添加好友</string>
+    <string name="text_chat">聊天</string>
+    <string name="text_audio_chat">语音聊天</string>
+    <string name="text_video_chat">视频聊天</string>
+    <string name="text_sex">性别</string>
+    <string name="text_age">年龄</string>
+    <string name="text_birthday">生日</string>
+    <string name="text_constellation">星座</string>
+    <string name="text_hobby">爱好</string>
+    <string name="text_status">状态</string>
+    <string name="text_man">男</string>
+    <string name="text_woman">女</string>
+    <string name="text_age_suffix">岁</string>
 </resources>

@@ -113,9 +113,15 @@ class SMSLoginFragment : Fragment(), View.OnClickListener {
      */
     private fun login() {
         val phone = this.mView.etMobilePhone.text.toString()
-        if (phone.isBlank()) shortToast(R.string.text_mobile_phone_is_not_null)
+        if (phone.isBlank()) {
+            shortToast(R.string.text_mobile_phone_is_not_null)
+            return
+        }
         val smsCode = this.mView.etAuthCode.text.toString()
-        if (smsCode.isBlank()) shortToast(R.string.text_sms_code_is_not_null)
+        if (smsCode.isBlank()) {
+            shortToast(R.string.text_sms_code_is_not_null)
+            return
+        }
 
         (context as? Activity)?.let {
             hideSoftInput(it)
@@ -158,8 +164,12 @@ class SMSLoginFragment : Fragment(), View.OnClickListener {
 
         // 3.发送验证码
         fun sendAuthCode() {
+            val dialog: AppCompatDialog? = context?.let {
+                showLoadingDialog(it, false, getString(R.string.text_sending_auth_code))
+            }
             BmobManager.requestSMSCode(phone, object : QueryListener<Int>() {
                 override fun done(code: Int?, e: BmobException?) {
+                    dialog?.dismiss()
                     if (e == null) {
                         // 发送按钮不可点击变灰
                         mView.btnSendAuthCode.isEnabled = false

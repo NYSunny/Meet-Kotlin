@@ -1,6 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<com.johnny.base.views.HeadZoomScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="SpUsage,MissingConstraints">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivBg"
+            android:layout_width="0dp"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_user_info_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAvatar"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toBottomOf="@id/ivBg"
+            app:layout_constraintEnd_toEndOf="@id/ivBg"
+            app:layout_constraintStart_toStartOf="@id/ivBg"
+            app:layout_constraintTop_toTopOf="@id/ivBg" />
+
+        <ImageView
+            android:id="@+id/ivMask"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/img_upload_photo_bg"
+            app:layout_constraintBottom_toBottomOf="@id/ivBg"
+            app:layout_constraintEnd_toEndOf="@id/ivBg"
+            app:layout_constraintStart_toStartOf="@id/ivBg"
+            app:layout_constraintTop_toTopOf="@id/ivBg" />
+
+        <TextView
+            android:id="@+id/tvNickName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@android:color/white"
+            android:textSize="18dp"
+            app:layout_constraintBottom_toBottomOf="@id/ivBg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivMask"
+            tools:text="Johnny" />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/color_read"
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBg" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUserInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDesc" />
+
+        <Button
+            android:id="@+id/btnAddFriend"
+            style="@style/style_user_info_btn"
+            android:text="@string/text_add_friend"
+            app:layout_constraintTop_toBottomOf="@id/rvUserInfo" />
+
+        <LinearLayout
+            android:id="@+id/llIsFriend"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAddFriend">
+
+            <Button
+                android:id="@+id/btnChat"
+                style="@style/style_user_info_btn"
+                android:layout_width="match_parent"
+                android:text="@string/text_chat"
+                app:layout_constraintTop_toBottomOf="@id/rvUserInfo" />
+
+            <Button
+                android:id="@+id/btnAudioChat"
+                style="@style/style_user_info_btn"
+                android:layout_width="match_parent"
+                android:text="@string/text_audio_chat"
+                app:layout_constraintTop_toBottomOf="@id/rvUserInfo" />
+
+            <Button
+                android:id="@+id/btnVideoChat"
+                style="@style/style_user_info_btn"
+                android:layout_width="match_parent"
+                android:text="@string/text_video_chat"
+                app:layout_constraintTop_toBottomOf="@id/rvUserInfo" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.johnny.base.views.HeadZoomScrollView>

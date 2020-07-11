@@ -11,6 +11,7 @@ import com.johnny.meet_kotlin.R
 import com.johnny.meet_kotlin.SP_KEY_TOKEN
 import com.johnny.meet_kotlin.bmob.BmobManager
 import com.johnny.meet_kotlin.rongcloud.RongCloudManager
+import com.johnny.meet_kotlin.test.TestActivity
 import kotlinx.android.synthetic.main.activity_setting.*
 
 /**
@@ -26,6 +27,7 @@ class SettingActivity:BaseUIActivity(), View.OnClickListener {
 
     private fun setupView() {
         btnLogOut.setOnClickListener(this)
+        btnTest.setOnClickListener(this)
     }
 
     override fun actionBarTitle(): String? = getString(R.string.text_setting)
@@ -33,7 +35,12 @@ class SettingActivity:BaseUIActivity(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btnLogOut -> logOut()
+            R.id.btnTest -> toTest()
         }
+    }
+
+    private fun toTest() {
+        startActivity<TestActivity>()
     }
 
     private fun logOut() {

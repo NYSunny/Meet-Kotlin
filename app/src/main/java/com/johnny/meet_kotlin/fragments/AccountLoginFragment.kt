@@ -1,7 +1,6 @@
 package com.johnny.meet_kotlin.fragments
 
 import android.app.Activity
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -61,9 +60,15 @@ class AccountLoginFragment : Fragment(), View.OnClickListener {
 
     private fun loginByAccount() {
         val account = etAccount.text.toString().trim()
-        if (account.isBlank()) shortToast(R.string.text_account_is_not_null)
+        if (account.isBlank()) {
+            shortToast(R.string.text_account_is_not_null)
+            return
+        }
         val password = etPassword.text.toString().trim()
-        if (password.isBlank()) shortToast(R.string.text_password_is_not_null)
+        if (password.isBlank()) {
+            shortToast(R.string.text_password_is_not_null)
+            return
+        }
 
         (context as? Activity)?.let {
             hideSoftInput(it)

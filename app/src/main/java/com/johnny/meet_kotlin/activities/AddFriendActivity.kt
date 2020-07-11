@@ -69,7 +69,8 @@ class AddFriendActivity : BaseUIActivity(), View.OnClickListener {
             })
             setOnItemClickListener(object : RVAdapter.OnItemClickListener<AddFriendModel> {
                 override fun onItemClick(data: AddFriendModel) {
-
+                    if (data.getItemType() == AddFriendModel.CONTENT)
+                        UserInfoActivity.start(this@AddFriendActivity, data.userId)
                 }
             })
         }

@@ -4,6 +4,7 @@ import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 import com.johnny.base.utils.SpUtils
+import com.johnny.base.utils.i
 import com.johnny.meet_kotlin.SP_KEY_TOKEN
 import io.rong.imlib.RongIMClient
 import io.rong.imlib.model.Message
@@ -42,6 +43,6 @@ class CloudService : Service() {
     }
 
     private fun parseIMMessage(message: Message?) {
-
+        i(msg = "message = ${message?.toString() ?: ""}")
     }
 }

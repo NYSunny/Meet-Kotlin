@@ -96,6 +96,7 @@ object RongCloudManager {
                 }
                 RongIMClient.ConnectionStatusListener.ConnectionStatus.KICKED_OFFLINE_BY_OTHER_CLIENT -> {
                 }
+                RongIMClient.ConnectionStatusListener.ConnectionStatus.SUSPEND -> {}
                 else -> {
                     i(msg = "ConnectionStatus = ${it.name}, current thread = ${Thread.currentThread()}")
                     mCurrentServiceStatus = ServiceStatus.UNCONNECTED
