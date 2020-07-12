@@ -78,4 +78,8 @@
     <string name="text_man">男</string>
     <string name="text_woman">女</string>
     <string name="text_age_suffix">岁</string>
+    <string name="text_add_contacts">添加联系人</string>
+    <string name="text_confirm">确定</string>
+    <string name="text_leave_message">留言..</string>
+    <string name="text_sending">正在发送...</string>
 </resources>

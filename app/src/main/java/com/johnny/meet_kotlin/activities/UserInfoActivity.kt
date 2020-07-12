@@ -21,6 +21,7 @@ import com.johnny.meet_kotlin.bmob.BmobManager
 import com.johnny.meet_kotlin.bmob.User
 import com.johnny.meet_kotlin.model.UserInfoModel
 import kotlinx.android.synthetic.main.activity_user_info.*
+import kotlinx.android.synthetic.main.dialog_request_add_friend.*
 
 /**
  * @author Johnny
@@ -196,6 +197,18 @@ class UserInfoActivity : BaseUIActivity(), View.OnClickListener {
     }
 
     private fun addFriend() {
+        com.johnny.base.utils.showDialog(this, R.layout.dialog_request_add_friend, false) {
+            tvCancel.setOnClickListener {
+                dismiss()
+            }
+            tvConfirm.setOnClickListener {
+                dismiss()
+                sendAddFriendMessage(etInput.text.toString())
+            }
+        }
+    }
 
+    private fun sendAddFriendMessage(msg: String) {
+        showLoadingDialog(this@UserInfoActivity, false, getString(R.string.text_sending))
     }
 }

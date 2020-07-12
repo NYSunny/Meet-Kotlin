@@ -72,6 +72,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':base')
+    implementation project(':rong-cloud-im')
 
     testImplementation rootProject.ext.deps["junit"]
     androidTestImplementation rootProject.ext.deps["androidx.test.ext"]
@@ -79,7 +80,7 @@ dependencies {
 
     implementation rootProject.ext.deps["kotlin-reflect"]
     implementation rootProject.ext.deps["3dtagcloud"]
-    implementation rootProject.ext.deps["rong-cloud-sdk"]
+//    implementation rootProject.ext.deps["rong-cloud-sdk"]
 
     // rxhttp
     implementation 'com.ljx.rxhttp:rxhttp:2.2.8'
