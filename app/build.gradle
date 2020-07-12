@@ -72,7 +72,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':base')
-    implementation project(':rong-cloud-im')
+    implementation project(':RongIMLib')
 
     testImplementation rootProject.ext.deps["junit"]
     androidTestImplementation rootProject.ext.deps["androidx.test.ext"]

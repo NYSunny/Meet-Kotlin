@@ -42,5 +42,5 @@ ext {
     maven = [
             "BmobRepo": "https://dl.bintray.com/chaozhouzhang/maven"
     ]
-    applicationId = "com.johnny.meet"
+    applicationId = "com.johnny.meet_kotlin"
 }
